@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+} from "react";
 
 import "./Hero.css";
 
@@ -9,19 +13,136 @@ function Hero({
   onVideoReady,
   showContent = true,
 }) {
+  const videoRef = useRef(null);
   const readyRef = useRef(false);
 
   /* =========================================================
-     VIDEO READY
+     VIDEO READY + PLAY
   ========================================================= */
 
-  const handleVideoReady = () => {
-    if (readyRef.current) return;
+  const startVideo = useCallback(async () => {
+    const video = videoRef.current;
 
-    readyRef.current = true;
+    if (!video) return;
 
-    onVideoReady?.();
+    try {
+      /*
+        Explicitly force muted inline playback.
+        This is important for production autoplay.
+      */
+
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.autoplay = true;
+
+      /*
+        Actually start the video.
+      */
+
+      await video.play();
+
+      console.log(
+        "VIDYA HERO VIDEO PLAYING"
+      );
+
+      /*
+        Only tell IntroReveal that the video
+        is ready AFTER play() succeeds.
+      */
+
+      if (!readyRef.current) {
+        readyRef.current = true;
+        onVideoReady?.();
+      }
+    } catch (error) {
+      console.error(
+        "VIDYA HERO VIDEO PLAY FAILED:",
+        error
+      );
+    }
+  }, [onVideoReady]);
+
+
+  /* =========================================================
+     VIDEO EVENTS
+  ========================================================= */
+
+  const handleLoadedData = () => {
+    console.log(
+      "VIDYA HERO VIDEO LOADED"
+    );
+
+    startVideo();
   };
+
+  const handleCanPlay = () => {
+    console.log(
+      "VIDYA HERO VIDEO CAN PLAY"
+    );
+
+    startVideo();
+  };
+
+  const handlePlay = () => {
+    console.log(
+      "VIDYA HERO VIDEO PLAY EVENT"
+    );
+
+    if (!readyRef.current) {
+      readyRef.current = true;
+      onVideoReady?.();
+    }
+  };
+
+
+  /* =========================================================
+     INITIAL PLAY ATTEMPT
+  ========================================================= */
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    /*
+      Try immediately.
+    */
+
+    startVideo();
+
+    /*
+      Try again when browser has loaded enough
+      video data.
+    */
+
+    video.addEventListener(
+      "loadeddata",
+      startVideo
+    );
+
+    video.addEventListener(
+      "canplay",
+      startVideo
+    );
+
+    return () => {
+      video.removeEventListener(
+        "loadeddata",
+        startVideo
+      );
+
+      video.removeEventListener(
+        "canplay",
+        startVideo
+      );
+    };
+  }, [startVideo]);
+
 
   return (
     <section className="vidya-hero">
@@ -33,15 +154,27 @@ function Hero({
       <div className="vidya-hero-video-box">
 
         <video
+          ref={videoRef}
           className="vidya-hero-video"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          onLoadedData={handleVideoReady}
-          onCanPlay={handleVideoReady}
+
+          onLoadedData={
+            handleLoadedData
+          }
+
+          onCanPlay={
+            handleCanPlay
+          }
+
+          onPlay={
+            handlePlay
+          }
         >
+
           <source
             src={HERO_VIDEO}
             type="video/mp4"
@@ -61,7 +194,6 @@ function Hero({
           }}
           transition={{
             duration: 0.32,
-
             ease: [
               0.22,
               1,
@@ -80,7 +212,9 @@ function Hero({
 
       <motion.div
         className="vidya-hero-bottom"
+
         initial={false}
+
         animate={
           showContent
             ? {
@@ -92,13 +226,8 @@ function Hero({
                 y: 26,
               }
         }
+
         transition={{
-          /*
-            MUCH FASTER.
-
-            No long delay after intro.
-          */
-
           duration: 0.48,
 
           delay:
@@ -121,7 +250,9 @@ function Hero({
 
         <motion.div
           className="vidya-hero-description"
+
           initial={false}
+
           animate={
             showContent
               ? {
@@ -133,6 +264,7 @@ function Hero({
                   y: 13,
                 }
           }
+
           transition={{
             duration: 0.42,
 
@@ -168,7 +300,9 @@ function Hero({
 
         <motion.div
           className="vidya-hero-word-area"
+
           initial={false}
+
           animate={
             showContent
               ? {
@@ -180,6 +314,7 @@ function Hero({
                   y: 35,
                 }
           }
+
           transition={{
             duration: 0.5,
 
