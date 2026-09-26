@@ -15,9 +15,25 @@ function Hero({
 }) {
   const videoRef = useRef(null);
   const readyRef = useRef(false);
+  const retryTimerRef = useRef(null);
 
   /* =========================================================
-     VIDEO READY + PLAY
+     MARK VIDEO READY
+  ========================================================= */
+
+  const markVideoReady = useCallback(() => {
+    if (readyRef.current) return;
+
+    readyRef.current = true;
+
+    console.log("VIDYA HERO VIDEO READY");
+
+    onVideoReady?.();
+  }, [onVideoReady]);
+
+
+  /* =========================================================
+     START VIDEO
   ========================================================= */
 
   const startVideo = useCallback(async () => {
@@ -27,8 +43,7 @@ function Hero({
 
     try {
       /*
-        Explicitly force muted inline playback.
-        This is important for production autoplay.
+        Force autoplay-safe settings.
       */
 
       video.muted = true;
@@ -37,44 +52,68 @@ function Hero({
       video.autoplay = true;
 
       /*
-        Actually start the video.
+        Make sure browser has a frame available.
       */
 
-      await video.play();
+      if (video.readyState < 2) {
+        return;
+      }
+
+      /*
+        ACTUALLY START PLAYBACK.
+      */
+
+      const playPromise = video.play();
+
+      if (playPromise !== undefined) {
+        await playPromise;
+      }
 
       console.log(
         "VIDYA HERO VIDEO PLAYING"
       );
 
+      markVideoReady();
+
+    } catch (error) {
+      console.log(
+        "Hero video waiting for playback...",
+        error
+      );
+
       /*
-        Only tell IntroReveal that the video
-        is ready AFTER play() succeeds.
+        Retry shortly.
+        This helps slower Netlify connections.
       */
 
       if (!readyRef.current) {
-        readyRef.current = true;
-        onVideoReady?.();
+        clearTimeout(retryTimerRef.current);
+
+        retryTimerRef.current =
+          window.setTimeout(() => {
+            startVideo();
+          }, 300);
       }
-    } catch (error) {
-      console.error(
-        "VIDYA HERO VIDEO PLAY FAILED:",
-        error
-      );
     }
-  }, [onVideoReady]);
+  }, [markVideoReady]);
 
 
   /* =========================================================
-     VIDEO EVENTS
+     VIDEO LOADED
   ========================================================= */
 
   const handleLoadedData = () => {
     console.log(
-      "VIDYA HERO VIDEO LOADED"
+      "VIDYA HERO VIDEO LOADED DATA"
     );
 
     startVideo();
   };
+
+
+  /* =========================================================
+     VIDEO CAN PLAY
+  ========================================================= */
 
   const handleCanPlay = () => {
     console.log(
@@ -84,20 +123,49 @@ function Hero({
     startVideo();
   };
 
+
+  /* =========================================================
+     VIDEO PLAY EVENT
+  ========================================================= */
+
   const handlePlay = () => {
     console.log(
       "VIDYA HERO VIDEO PLAY EVENT"
     );
 
-    if (!readyRef.current) {
-      readyRef.current = true;
-      onVideoReady?.();
-    }
+    markVideoReady();
   };
 
 
   /* =========================================================
-     INITIAL PLAY ATTEMPT
+     VIDEO WAITING
+  ========================================================= */
+
+  const handleWaiting = () => {
+    console.log(
+      "VIDYA HERO VIDEO BUFFERING"
+    );
+  };
+
+
+  /* =========================================================
+     VIDEO ERROR
+  ========================================================= */
+
+  const handleVideoError = () => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    console.error(
+      "VIDYA HERO VIDEO ERROR",
+      video.error
+    );
+  };
+
+
+  /* =========================================================
+     INITIAL VIDEO START
   ========================================================= */
 
   useEffect(() => {
@@ -105,19 +173,23 @@ function Hero({
 
     if (!video) return;
 
+    /*
+      Force autoplay-safe properties.
+    */
+
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
+    video.autoplay = true;
 
     /*
-      Try immediately.
+      Browser gets an immediate attempt.
     */
 
     startVideo();
 
     /*
-      Try again when browser has loaded enough
-      video data.
+      Additional attempts after media loading.
     */
 
     video.addEventListener(
@@ -130,6 +202,11 @@ function Hero({
       startVideo
     );
 
+    video.addEventListener(
+      "loadedmetadata",
+      startVideo
+    );
+
     return () => {
       video.removeEventListener(
         "loadeddata",
@@ -139,6 +216,15 @@ function Hero({
       video.removeEventListener(
         "canplay",
         startVideo
+      );
+
+      video.removeEventListener(
+        "loadedmetadata",
+        startVideo
+      );
+
+      clearTimeout(
+        retryTimerRef.current
       );
     };
   }, [startVideo]);
@@ -156,10 +242,35 @@ function Hero({
         <video
           ref={videoRef}
           className="vidya-hero-video"
+
+          /*
+            AUTOPLAY
+          */
+
           autoPlay
+
+          /*
+            REQUIRED FOR AUTOPLAY
+          */
+
           muted
+
+          /*
+            REPEAT
+          */
+
           loop
+
+          /*
+            MOBILE INLINE PLAYBACK
+          */
+
           playsInline
+
+          /*
+            Tell browser to load video early.
+          */
+
           preload="auto"
 
           onLoadedData={
@@ -173,6 +284,14 @@ function Hero({
           onPlay={
             handlePlay
           }
+
+          onWaiting={
+            handleWaiting
+          }
+
+          onError={
+            handleVideoError
+          }
         >
 
           <source
@@ -184,16 +303,24 @@ function Hero({
         </video>
 
 
-        {/* DARK OVERLAY */}
+        {/* =================================================
+            DARK OVERLAY
+        ================================================== */}
 
         <motion.div
           className="vidya-hero-overlay"
+
           initial={false}
+
           animate={{
-            opacity: showContent ? 1 : 0,
+            opacity: showContent
+              ? 1
+              : 0,
           }}
+
           transition={{
             duration: 0.32,
+
             ease: [
               0.22,
               1,
@@ -245,7 +372,7 @@ function Hero({
       >
 
         {/* ===================================================
-            LEFT TEXT
+            LEFT DESCRIPTION
         ==================================================== */}
 
         <motion.div

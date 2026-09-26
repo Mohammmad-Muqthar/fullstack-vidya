@@ -83,10 +83,7 @@ function IntroReveal({
 
 
   /* =========================================================
-     START AFTER VIDEO READY
-
-     Wait two browser frames so that the first
-     actual video frame is painted before zoom.
+     START ONLY AFTER REAL VIDEO PLAYBACK
   ========================================================= */
 
   useEffect(() => {
@@ -110,27 +107,6 @@ function IntroReveal({
       cancelAnimationFrame(frame2);
     };
   }, [ready, started]);
-
-
-  /* =========================================================
-     SAFETY START
-
-     Never stay stuck if a browser does not
-     report video-ready correctly.
-  ========================================================= */
-
-  useEffect(() => {
-    if (started) return;
-
-    const timer =
-      window.setTimeout(() => {
-        setStarted(true);
-      }, 1600);
-
-    return () => {
-      window.clearTimeout(timer);
-    };
-  }, [started]);
 
 
   /* =========================================================
@@ -223,10 +199,6 @@ function IntroReveal({
   const centerY =
     viewHeight / 2;
 
-  /*
-    Same width you already liked.
-  */
-
   const textWidth =
     isMobile
       ? 840
@@ -251,23 +223,6 @@ function IntroReveal({
         .join(" ")}
     >
 
-      {/* =====================================================
-          FIXED FULLSCREEN SVG
-
-          IMPORTANT:
-
-          SVG never zooms.
-          White rectangle never zooms.
-
-          ONLY black WE BELIEVE text inside
-          the mask enlarges.
-
-          Black = transparent.
-
-          Therefore:
-          VIDEO SPACE is what enlarges.
-      ====================================================== */}
-
       <svg
         className="wb-intro-svg"
         viewBox={
@@ -288,8 +243,6 @@ function IntroReveal({
             maskUnits="userSpaceOnUse"
           >
 
-            {/* WHITE = KEEP WHITE */}
-
             <rect
               x="0"
               y="0"
@@ -297,13 +250,6 @@ function IntroReveal({
               height={viewHeight}
               fill="white"
             />
-
-
-            {/* ===============================================
-                BLACK = TRANSPARENT / VIDEO
-
-                THIS GROUP ALONE ZOOMS.
-            ================================================ */}
 
             <g
               className="wb-video-opening"
@@ -332,14 +278,6 @@ function IntroReveal({
 
         </defs>
 
-
-        {/* ===================================================
-            WHITE COVER
-
-            FIXED at 100vw x 100vh.
-
-            It never transforms.
-        ==================================================== */}
 
         <rect
           className="wb-white-cover"
