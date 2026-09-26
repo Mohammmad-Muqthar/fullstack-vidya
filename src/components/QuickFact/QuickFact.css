@@ -1,0 +1,1395 @@
+/* =========================================================
+   VIDYA ACADEMY — QUICK FACTS
+
+   BRAND SYSTEM:
+   - Deep Vidya green section
+   - Slightly lighter green cards
+   - Natural photography
+   - Orange drag cursor
+   - Orange pagination accent
+   - Same global website font
+   - NO decorative line above heading
+========================================================= */
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.quick-fact-section {
+  --quick-bg: #184d3a;
+
+  --quick-bg-deep: #143f30;
+
+  --quick-green: #20684c;
+
+  --quick-green-soft: #286b52;
+
+  --quick-green-card: #245c47;
+
+  --quick-text: #ffffff;
+
+  --quick-muted:
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
+
+  --quick-sage: #c7ddd0;
+
+  --quick-orange: #f39a20;
+
+  --quick-orange-soft: #fff0de;
+
+  --quick-card-border:
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+
+  --quick-side-space:
+    clamp(
+      24px,
+      5vw,
+      95px
+    );
+
+  --quick-card-gap:
+    clamp(
+      16px,
+      1.8vw,
+      28px
+    );
+
+  --quick-card-width:
+    clamp(
+      280px,
+      29vw,
+      520px
+    );
+
+
+  position: relative;
+
+  isolation: isolate;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding:
+    95px
+    0
+    105px;
+
+  background:
+    var(--quick-bg);
+
+  color:
+    var(--quick-text);
+
+  /*
+    SAME WEBSITE FONT
+  */
+
+  font-family:
+    var(
+      --font-primary,
+      inherit
+    );
+
+  overflow: hidden;
+
+  scroll-margin-top:
+    80px;
+}
+
+
+/* =========================================================
+   LOCAL RESET + FONT CONSISTENCY
+========================================================= */
+
+.quick-fact-section,
+.quick-fact-section *,
+.quick-fact-section *::before,
+.quick-fact-section *::after {
+  box-sizing:
+    border-box;
+
+  font-family:
+    inherit;
+}
+
+
+.quick-fact-section h1,
+.quick-fact-section h2,
+.quick-fact-section h3,
+.quick-fact-section p,
+.quick-fact-section button,
+.quick-fact-section span {
+  font-family:
+    inherit;
+}
+
+
+.quick-fact-section h2,
+.quick-fact-section h3,
+.quick-fact-section p {
+  margin: 0;
+}
+
+
+/* =========================================================
+   SUBTLE BACKGROUND DEPTH
+========================================================= */
+
+.quick-fact-section::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: 0;
+
+  top: -220px;
+
+  right: -160px;
+
+  width: 560px;
+
+  height: 560px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+
+      rgba(
+        199,
+        221,
+        208,
+        0.07
+      )
+      0%,
+
+      rgba(
+        199,
+        221,
+        208,
+        0.025
+      )
+      48%,
+
+      transparent
+      72%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADING
+
+   NO DECORATIVE LINE ABOVE
+========================================================= */
+
+.quick-fact-header {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  padding:
+    0
+    var(--quick-side-space);
+
+  margin-bottom:
+    44px;
+}
+
+
+.quick-fact-header h2 {
+  margin: 0;
+
+  color:
+    var(--quick-text);
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      38px,
+      3.7vw,
+      60px
+    );
+
+  /*
+    Matches:
+    Academic Programmes
+    Life at Vidya Academy
+    The Vidya Way
+  */
+
+  font-weight: 600;
+
+  line-height: 1.07;
+
+  letter-spacing:
+    -0.05em;
+
+  text-wrap:
+    balance;
+}
+
+
+/* =========================================================
+   HORIZONTAL CAROUSEL
+========================================================= */
+
+.quick-fact-slider {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-wrap: nowrap;
+
+  align-items: stretch;
+
+  width: 100%;
+
+  gap:
+    var(
+      --quick-card-gap
+    );
+
+  margin: 0;
+
+  /*
+    Extra room for card hover.
+  */
+
+  padding:
+    15px
+    var(--quick-side-space)
+    25px;
+
+  overflow-x: auto;
+
+  overflow-y: hidden;
+
+  scroll-snap-type:
+    x mandatory;
+
+  scroll-padding-inline:
+    var(--quick-side-space);
+
+  overscroll-behavior-x:
+    contain;
+
+  -webkit-overflow-scrolling:
+    touch;
+
+  scrollbar-width:
+    none;
+
+  touch-action:
+    pan-x pan-y;
+
+  user-select:
+    none;
+
+  -webkit-user-select:
+    none;
+}
+
+
+.quick-fact-slider::-webkit-scrollbar {
+  display:
+    none;
+}
+
+
+/* =========================================================
+   DESKTOP DRAGGING
+========================================================= */
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .quick-fact-slider,
+  .quick-fact-slider * {
+    cursor:
+      none;
+  }
+
+
+  .quick-fact-slider.is-dragging {
+    scroll-snap-type:
+      none;
+
+    scroll-behavior:
+      auto;
+  }
+
+
+  .quick-fact-slider.is-dragging
+  .quick-fact-card {
+    scale: 1;
+
+    translate:
+      0 0;
+  }
+
+
+  .quick-fact-slider.is-dragging
+  .quick-fact-image img {
+    transform:
+      scale(1.01);
+  }
+
+}
+
+
+/* =========================================================
+   PREVENT IMAGE DRAG
+========================================================= */
+
+.quick-fact-image img {
+  -webkit-user-drag:
+    none;
+
+  user-drag:
+    none;
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   COMPLETE CARD
+========================================================= */
+
+.quick-fact-card {
+  position: relative;
+
+  isolation: isolate;
+
+  flex:
+    0
+    0
+    var(
+      --quick-card-width
+    );
+
+  width:
+    var(
+      --quick-card-width
+    );
+
+  min-width: 0;
+
+  /*
+    Lighter green than section.
+  */
+
+  background:
+    var(--quick-green-card);
+
+  border:
+    1px solid
+    var(--quick-card-border);
+
+  border-radius:
+    0;
+
+  overflow:
+    hidden;
+
+  scroll-snap-align:
+    start;
+
+  scale: 1;
+
+  translate:
+    0 0;
+
+  transition:
+    scale
+      0.5s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    translate
+      0.5s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    border-color
+      0.35s ease,
+    box-shadow
+      0.5s ease;
+}
+
+
+/* =========================================================
+   WHOLE CARD HOVER
+========================================================= */
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .quick-fact-slider:not(
+    .is-dragging
+  )
+  .quick-fact-card:hover {
+    scale:
+      1.03;
+
+    translate:
+      0
+      -7px;
+
+    z-index: 3;
+
+    border-color:
+      rgba(
+        243,
+        154,
+        32,
+        0.38
+      );
+
+    box-shadow:
+      0
+      20px
+      45px
+      rgba(
+        12,
+        42,
+        31,
+        0.33
+      ),
+      0
+      8px
+      18px
+      rgba(
+        12,
+        42,
+        31,
+        0.18
+      );
+  }
+
+}
+
+
+/* =========================================================
+   CARD IMAGE
+========================================================= */
+
+.quick-fact-image {
+  position: relative;
+
+  width: 100%;
+
+  height:
+    clamp(
+      210px,
+      20vw,
+      330px
+    );
+
+  background:
+    var(--quick-bg-deep);
+
+  overflow:
+    hidden;
+}
+
+
+.quick-fact-image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  max-width: none;
+
+  object-fit: cover;
+
+  object-position:
+    center;
+
+  transform:
+    scale(1.01);
+
+  transition:
+    transform
+      0.75s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================================
+   IMAGE LOWER SHADE
+========================================================= */
+
+.quick-fact-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+
+      rgba(
+        20,
+        63,
+        48,
+        0
+      )
+      50%,
+
+      rgba(
+        20,
+        63,
+        48,
+        0.12
+      )
+      100%
+    );
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+========================================================= */
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .quick-fact-slider:not(
+    .is-dragging
+  )
+  .quick-fact-card:hover
+  .quick-fact-image img {
+    transform:
+      scale(1.065);
+  }
+
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.quick-fact-content {
+  width: 100%;
+
+  padding:
+    22px
+    21px
+    26px;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.quick-fact-content h3 {
+  margin:
+    0
+    0
+    11px;
+
+  color:
+    #ffffff;
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      18px,
+      1.25vw,
+      22px
+    );
+
+  font-weight: 600;
+
+  line-height: 1.32;
+
+  letter-spacing:
+    -0.035em;
+
+  text-wrap:
+    balance;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
+
+.quick-fact-content p {
+  max-width:
+    100%;
+
+  margin: 0;
+
+  color:
+    var(--quick-muted);
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      13px,
+      0.92vw,
+      16px
+    );
+
+  font-weight: 400;
+
+  line-height: 1.65;
+
+  letter-spacing:
+    -0.008em;
+
+  text-wrap:
+    pretty;
+}
+
+
+/* =========================================================
+   CUSTOM DRAG CURSOR
+
+   CHANGED:
+   BLACK -> VIDYA ORANGE
+========================================================= */
+
+.quick-fact-cursor {
+  position:
+    absolute;
+
+  top: 0;
+
+  left: 0;
+
+  z-index:
+    30;
+
+  width: 0;
+
+  height: 0;
+
+  pointer-events:
+    none;
+
+  opacity: 0;
+
+  will-change:
+    transform;
+
+  transition:
+    opacity
+      0.3s ease;
+}
+
+
+.quick-fact-cursor.is-visible {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   CURSOR CIRCLE
+========================================================= */
+
+.quick-fact-cursor-circle {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width:
+    78px;
+
+  height:
+    78px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+
+  border-radius:
+    50%;
+
+  background:
+    var(--quick-orange);
+
+  color:
+    var(--quick-bg-deep);
+
+  box-shadow:
+    0
+    6px
+    24px
+    rgba(
+      12,
+      42,
+      31,
+      0.26
+    );
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(0.55);
+
+  opacity: 0;
+
+  transition:
+    transform
+      0.48s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    opacity
+      0.35s ease;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================================
+   CURSOR VISIBLE
+========================================================= */
+
+.quick-fact-cursor.is-visible
+.quick-fact-cursor-circle {
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(1);
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   CURSOR TEXT
+========================================================= */
+
+.quick-fact-cursor-text {
+  display: block;
+
+  color:
+    var(--quick-bg-deep);
+
+  font-family:
+    inherit;
+
+  font-size:
+    10px;
+
+  font-weight:
+    600;
+
+  line-height: 1;
+
+  letter-spacing:
+    0.08em;
+
+  transition:
+    opacity
+      0.2s ease,
+    transform
+      0.3s ease;
+}
+
+
+/* =========================================================
+   SMALL DOT WHILE DRAGGING
+========================================================= */
+
+.quick-fact-cursor.is-dragging
+.quick-fact-cursor-circle {
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(0.2);
+
+  opacity: 1;
+}
+
+
+.quick-fact-cursor.is-dragging
+.quick-fact-cursor-text {
+  opacity: 0;
+
+  transform:
+    scale(0.5);
+}
+
+
+/* =========================================================
+   SMALLER WHILE SCROLLING
+========================================================= */
+
+.quick-fact-cursor.is-scrolling:not(
+  .is-dragging
+)
+.quick-fact-cursor-circle {
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(0.48);
+}
+
+
+.quick-fact-cursor.is-scrolling:not(
+  .is-dragging
+)
+.quick-fact-cursor-text {
+  opacity:
+    0;
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+
+   Hide desktop custom cursor.
+========================================================= */
+
+@media (
+  hover: none
+),
+(
+  pointer: coarse
+) {
+
+  .quick-fact-cursor {
+    display:
+      none !important;
+  }
+
+}
+
+
+/* =========================================================
+   BOTTOM PAGINATION
+========================================================= */
+
+.quick-fact-bottom {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  margin-top:
+    32px;
+
+  padding:
+    0
+    var(--quick-side-space);
+}
+
+
+.quick-fact-pagination {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap:
+    9px;
+}
+
+
+/* =========================================================
+   PAGINATION DOTS
+========================================================= */
+
+.quick-fact-dot {
+  display: block;
+
+  width:
+    7px;
+
+  height:
+    7px;
+
+  margin: 0;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.3
+    );
+
+  cursor: pointer;
+
+  transition:
+    background-color
+      0.25s ease,
+    transform
+      0.25s ease;
+}
+
+
+/* =========================================================
+   ACTIVE DOT
+
+   Orange brand accent.
+========================================================= */
+
+.quick-fact-dot.active {
+  background:
+    var(--quick-orange);
+
+  transform:
+    scale(1.28);
+}
+
+
+/* =========================================================
+   DOT HOVER
+========================================================= */
+
+.quick-fact-dot:hover {
+  background:
+    var(--quick-orange-soft);
+}
+
+
+.quick-fact-dot:focus-visible {
+  outline:
+    2px solid
+    var(--quick-orange);
+
+  outline-offset:
+    5px;
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+========================================================= */
+
+.quick-fact-section
+::selection {
+  background:
+    var(--quick-orange);
+
+  color:
+    var(--quick-bg-deep);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (
+  min-width: 1500px
+) {
+
+  .quick-fact-section {
+    padding:
+      110px
+      0
+      120px;
+  }
+
+
+  .quick-fact-header {
+    margin-bottom:
+      50px;
+  }
+
+
+  .quick-fact-content {
+    padding:
+      23px
+      22px
+      28px;
+  }
+
+
+  .quick-fact-content h3 {
+    font-size:
+      22px;
+  }
+
+
+  .quick-fact-content p {
+    font-size:
+      16px;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (
+  max-width: 1200px
+) {
+
+  .quick-fact-section {
+    padding:
+      85px
+      0
+      95px;
+  }
+
+
+  .quick-fact-header {
+    margin-bottom:
+      38px;
+  }
+
+
+  .quick-fact-header h2 {
+    font-size:
+      clamp(
+        36px,
+        4vw,
+        52px
+      );
+  }
+
+
+  .quick-fact-content h3 {
+    font-size:
+      19px;
+  }
+
+
+  .quick-fact-content p {
+    font-size:
+      14px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+  max-width: 900px
+) {
+
+  .quick-fact-section {
+    --quick-side-space:
+      28px;
+
+    --quick-card-width:
+      clamp(
+        270px,
+        40vw,
+        350px
+      );
+
+    padding:
+      75px
+      0
+      85px;
+  }
+
+
+  .quick-fact-header {
+    margin-bottom:
+      32px;
+  }
+
+
+  .quick-fact-header h2 {
+    font-size:
+      42px;
+  }
+
+
+  .quick-fact-image {
+    height:
+      225px;
+  }
+
+
+  .quick-fact-content h3 {
+    font-size:
+      18px;
+  }
+
+
+  .quick-fact-content p {
+    font-size:
+      13.5px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+  max-width: 600px
+) {
+
+  .quick-fact-section {
+    --quick-side-space:
+      18px;
+
+    --quick-card-gap:
+      14px;
+
+    --quick-card-width:
+      82vw;
+
+    padding:
+      65px
+      0
+      75px;
+
+    scroll-margin-top:
+      68px;
+  }
+
+
+  .quick-fact-header {
+    margin-bottom:
+      26px;
+  }
+
+
+  .quick-fact-header h2 {
+    font-size:
+      clamp(
+        30px,
+        7.4vw,
+        39px
+      );
+
+    font-weight:
+      600;
+
+    line-height:
+      1.08;
+  }
+
+
+  /* =======================================================
+     SLIDER
+  ======================================================= */
+
+  .quick-fact-slider {
+    padding-top:
+      10px;
+
+    padding-bottom:
+      18px;
+
+    touch-action:
+      pan-x pan-y;
+  }
+
+
+  /* =======================================================
+     IMAGE
+  ======================================================= */
+
+  .quick-fact-image {
+    height:
+      56vw;
+
+    max-height:
+      255px;
+  }
+
+
+  /* =======================================================
+     CONTENT
+  ======================================================= */
+
+  .quick-fact-content {
+    padding:
+      18px
+      17px
+      22px;
+  }
+
+
+  .quick-fact-content h3 {
+    margin-bottom:
+      9px;
+
+    font-size:
+      18px;
+  }
+
+
+  .quick-fact-content p {
+    font-size:
+      13px;
+
+    line-height:
+      1.62;
+  }
+
+
+  /* =======================================================
+     PAGINATION
+  ======================================================= */
+
+  .quick-fact-bottom {
+    margin-top:
+      25px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width: 380px
+) {
+
+  .quick-fact-header h2 {
+    font-size:
+      28px;
+  }
+
+
+  .quick-fact-content h3 {
+    font-size:
+      17px;
+  }
+
+
+  .quick-fact-content p {
+    font-size:
+      12.5px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .quick-fact-card,
+  .quick-fact-image img,
+  .quick-fact-dot,
+  .quick-fact-cursor,
+  .quick-fact-cursor-circle,
+  .quick-fact-cursor-text {
+    transition:
+      none !important;
+  }
+
+
+  .quick-fact-slider {
+    scroll-behavior:
+      auto;
+  }
+
+}

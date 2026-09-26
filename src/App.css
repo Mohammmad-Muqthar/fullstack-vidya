@@ -1,0 +1,42 @@
+/* =========================================
+   GLOBAL PAGE WIDTH FIX
+========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: clip;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Keep every page section within the available width */
+
+#root > main,
+#root > section,
+main > section {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+}

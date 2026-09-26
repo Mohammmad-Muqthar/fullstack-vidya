@@ -1,0 +1,353 @@
+/* =========================================================
+   INTRO ROOT
+========================================================= */
+
+.wb-intro {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 2147483647;
+
+  width: 100vw;
+
+  height: 100dvh;
+
+  overflow: hidden;
+
+  /*
+    MUST BE TRANSPARENT.
+  */
+
+  background: transparent;
+
+  pointer-events: all;
+
+  opacity: 1;
+
+  transform: translateZ(0);
+
+  backface-visibility: hidden;
+}
+
+
+/* =========================================================
+   PAGE LOCK
+========================================================= */
+
+body.wb-page-intro-active {
+  overflow: hidden !important;
+}
+
+
+/* =========================================================
+   REMOVE GREEN FLASH AT INTRO START
+
+   ONLY CHANGE ADDED.
+
+   The SVG opening is transparent, so before the video
+   appears it was showing the Hero's green fallback.
+
+   During the intro only, make that fallback black.
+
+   Once intro finishes, your normal Hero styles take over.
+========================================================= */
+
+body.wb-page-intro-active .vidya-hero,
+body.wb-page-intro-active .vidya-hero-video-box {
+  background: #000000 !important;
+}
+
+
+/* =========================================================
+   HIDE NAVBAR / FIXED UI
+========================================================= */
+
+body.wb-page-intro-active nav,
+body.wb-page-intro-active header,
+body.wb-page-intro-active .navbar,
+body.wb-page-intro-active .Navbar,
+body.wb-page-intro-active .vidya-navbar,
+body.wb-page-intro-active .main-navbar,
+body.wb-page-intro-active .site-navbar,
+body.wb-page-intro-active .nav-wrapper,
+body.wb-page-intro-active .bottom-blur,
+body.wb-page-intro-active .BottomBlur {
+  opacity: 0 !important;
+
+  visibility: hidden !important;
+
+  pointer-events: none !important;
+}
+
+
+/* =========================================================
+   SVG
+
+   COMPLETELY FIXED.
+
+   Do not put animation or transform here.
+========================================================= */
+
+.wb-intro-svg {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  background: transparent;
+
+  pointer-events: none;
+
+  transform: translateZ(0);
+
+  backface-visibility: hidden;
+}
+
+
+/* =========================================================
+   WHITE COVER
+
+   IMPORTANT:
+
+   No scale.
+   No transform.
+   No zoom.
+
+   It only fades near the final moment.
+========================================================= */
+
+.wb-white-cover {
+  opacity: 1;
+
+  will-change: opacity;
+}
+
+
+/* =========================================================
+   TRANSPARENT VIDEO OPENING
+
+   This is BLACK inside the SVG mask.
+
+   Black = transparent.
+
+   Therefore Hero video underneath becomes
+   visible wherever this text exists.
+
+   THIS is the only element that enlarges.
+========================================================= */
+
+.wb-video-opening {
+  transform-box: view-box;
+
+  /*
+    VERY IMPORTANT FIX
+
+    Previous origin was 58%.
+    That landed in a WHITE GAP near the L/I area.
+
+    47.3% lands inside the thick middle bar
+    of the first E in BELIEVE.
+
+    So when it enlarges, VIDEO expands from
+    the middle — not white.
+  */
+
+  transform-origin: 47.3% 50%;
+
+  transform: scale(1);
+
+  will-change: transform;
+
+  backface-visibility: hidden;
+}
+
+
+/* =========================================================
+   INTRO FONT
+========================================================= */
+
+.wb-intro-text {
+  font-family:
+    Arial,
+    "Helvetica Neue",
+    Helvetica,
+    sans-serif;
+
+  font-weight: 900;
+
+  letter-spacing: -0.065em;
+
+  text-rendering:
+    geometricPrecision;
+
+  -webkit-font-smoothing:
+    antialiased;
+}
+
+
+/* =========================================================
+   INITIAL HOLD + SMOOTH VIDEO ZOOM
+
+   0.38s hold.
+
+   Then the VIDEO WINDOW zooms for 1.55s.
+========================================================= */
+
+.wb-intro--started
+.wb-video-opening {
+  animation:
+    wbVideoOpeningZoom
+    1.55s
+    cubic-bezier(
+      0.52,
+      0,
+      0.08,
+      1
+    )
+    0.38s
+    forwards;
+}
+
+
+/* =========================================================
+   VIDEO OPENING ZOOM
+
+   Huge scale is intentional.
+
+   We are zooming from INSIDE a solid glyph.
+
+   As that glyph gets larger, its transparent
+   area becomes the entire browser window.
+
+   White gets pushed outwards.
+========================================================= */
+
+@keyframes wbVideoOpeningZoom {
+
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(82);
+  }
+
+}
+
+
+/* =========================================================
+   FINAL WHITE REMOVAL
+
+   White stays 100% opaque during most of zoom.
+
+   Only when the video-filled glyph already
+   occupies most of the viewport do we fade
+   the remaining white edges.
+
+   So there is NO giant white flash.
+========================================================= */
+
+.wb-intro--started
+.wb-white-cover {
+  animation:
+    wbRemoveRemainingWhite
+    0.32s
+    cubic-bezier(
+      0.4,
+      0,
+      0.2,
+      1
+    )
+    1.48s
+    forwards;
+}
+
+
+@keyframes wbRemoveRemainingWhite {
+
+  0% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0.92;
+  }
+
+  65% {
+    opacity: 0.45;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+  max-width: 768px
+) {
+
+  .wb-video-opening {
+    /*
+      Same glyph-relative position.
+    */
+
+    transform-origin:
+      47.3% 50%;
+  }
+
+
+  .wb-intro-text {
+    letter-spacing:
+      -0.055em;
+  }
+
+
+  /*
+    Slightly faster on mobile.
+  */
+
+  .wb-intro--started
+  .wb-video-opening {
+    animation-duration: 1.4s;
+
+    animation-delay: 0.34s;
+  }
+
+
+  .wb-intro--started
+  .wb-white-cover {
+    animation-duration: 0.28s;
+
+    animation-delay: 1.34s;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  .wb-intro {
+    display: none;
+  }
+
+}

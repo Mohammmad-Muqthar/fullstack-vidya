@@ -1,0 +1,1542 @@
+/* =========================================================
+   VIDYA ACADEMY — PREMIUM FOOTER
+
+   REFERENCE DIRECTION:
+   - Near-black background
+   - Spacious top information area
+   - Minimal muted text
+   - Large VIDYA ACADEMY typography
+   - Large flowing graphic
+   - Footer slides up over FAQ
+   - Strong motion / reveal
+========================================================= */
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+.vidya-footer {
+  --footer-bg:
+    #1d1e1d;
+
+  --footer-bg-deep:
+    #181918;
+
+  --footer-white:
+    #f2efed;
+
+  --footer-muted:
+    #999d99;
+
+  --footer-muted-light:
+    #b7bab6;
+
+  --footer-orange:
+    #f39a20;
+
+  --footer-green:
+    #20684c;
+
+  --footer-line:
+    rgba(
+      255,
+      255,
+      255,
+      0.13
+    );
+
+
+  position:
+    relative;
+
+  z-index:
+    80;
+
+  isolation:
+    isolate;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  width:
+    100%;
+
+  min-height:
+    100vh;
+
+  min-height:
+    100svh;
+
+  margin:
+    0;
+
+  padding:
+    clamp(
+      95px,
+      11vh,
+      135px
+    )
+    0
+    29px;
+
+  background:
+    var(--footer-bg);
+
+  color:
+    var(--footer-white);
+
+  font-family:
+    var(
+      --font-primary,
+      inherit
+    );
+
+  overflow:
+    hidden;
+
+  transform:
+    translateZ(0);
+
+  will-change:
+    transform;
+}
+
+
+/* =========================================================
+   SUBTLE BACKGROUND LIGHT
+========================================================= */
+
+.vidya-footer::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    -300px;
+
+  left:
+    22%;
+
+  width:
+    700px;
+
+  height:
+    500px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.025
+      )
+      0%,
+
+      transparent
+      68%
+    );
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.vidya-footer,
+.vidya-footer *,
+.vidya-footer *::before,
+.vidya-footer *::after {
+  box-sizing:
+    border-box;
+
+  font-family:
+    inherit;
+}
+
+
+.vidya-footer h1,
+.vidya-footer h2,
+.vidya-footer h3,
+.vidya-footer p,
+.vidya-footer ul {
+  margin:
+    0;
+
+  padding:
+    0;
+}
+
+
+.vidya-footer a {
+  color:
+    inherit;
+
+  text-decoration:
+    none;
+}
+
+
+/* =========================================================
+   MAIN WIDTH
+========================================================= */
+
+.vidya-footer-container {
+  position:
+    relative;
+
+  z-index:
+    2;
+
+  display:
+    flex;
+
+  flex:
+    1;
+
+  flex-direction:
+    column;
+
+  width:
+    min(
+      1750px,
+      calc(
+        100% -
+        110px
+      )
+    );
+
+  margin:
+    0 auto;
+}
+
+
+/* =========================================================
+   TOP GRID
+========================================================= */
+
+.vidya-footer-top {
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(
+      340px,
+      1.35fr
+    )
+    minmax(
+      0,
+      2.65fr
+    );
+
+  align-items:
+    start;
+
+  gap:
+    clamp(
+      90px,
+      10vw,
+      190px
+    );
+
+  width:
+    100%;
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.vidya-footer-info {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    flex-start;
+
+  min-width:
+    0;
+}
+
+
+/* =========================================================
+   INTRO TEXT
+========================================================= */
+
+.vidya-footer-intro {
+  color:
+    var(--footer-white);
+
+  font-size:
+    clamp(
+      17px,
+      1.1vw,
+      20px
+    );
+
+  font-weight:
+    500;
+
+  line-height:
+    1.48;
+
+  letter-spacing:
+    -0.025em;
+}
+
+
+/* =========================================================
+   ADDRESS
+========================================================= */
+
+.vidya-footer-address {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    3px;
+
+  margin-top:
+    31px;
+
+  color:
+    var(--footer-muted);
+
+  font-size:
+    14px;
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.55;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.vidya-footer-contact {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    3px;
+
+  margin-top:
+    29px;
+}
+
+
+.vidya-footer-contact a {
+  color:
+    var(--footer-muted);
+
+  font-size:
+    14px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.55;
+
+  transition:
+    color
+      0.25s ease;
+}
+
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .vidya-footer-contact a:hover {
+    color:
+      var(--footer-white);
+  }
+
+}
+
+
+/* =========================================================
+   WHATSAPP
+
+   ALWAYS VISIBLE
+========================================================= */
+
+.vidya-footer-whatsapp {
+  position:
+    relative;
+
+  z-index:
+    5;
+
+  display:
+    inline-flex !important;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    10px;
+
+  width:
+    auto;
+
+  min-width:
+    182px;
+
+  min-height:
+    47px;
+
+  margin-top:
+    25px;
+
+  padding:
+    0
+    15px;
+
+  border:
+    1px solid
+    #ffffff;
+
+  border-radius:
+    9px;
+
+  background:
+    #f7f6f4;
+
+  color:
+    #1d1e1d !important;
+
+  opacity:
+    1;
+
+  visibility:
+    visible;
+
+  pointer-events:
+    auto;
+
+  font-size:
+    11px;
+
+  font-weight:
+    600;
+
+  line-height:
+    1;
+
+  white-space:
+    nowrap;
+
+  box-shadow:
+    0
+    8px
+    24px
+    rgba(
+      0,
+      0,
+      0,
+      0.16
+    );
+
+  transition:
+    background-color
+      0.28s ease,
+    border-color
+      0.28s ease,
+    color
+      0.28s ease,
+    transform
+      0.35s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    box-shadow
+      0.3s ease;
+}
+
+
+.vidya-footer-whatsapp svg {
+  display:
+    block;
+
+  width:
+    21px;
+
+  height:
+    21px;
+
+  flex:
+    0
+    0
+    auto;
+}
+
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .vidya-footer-whatsapp:hover {
+    background:
+      var(--footer-orange);
+
+    border-color:
+      var(--footer-orange);
+
+    color:
+      #17261f !important;
+
+    transform:
+      translateY(
+        -3px
+      );
+
+    box-shadow:
+      0
+      13px
+      30px
+      rgba(
+        0,
+        0,
+        0,
+        0.24
+      );
+  }
+
+
+  .vidya-footer-whatsapp:hover
+  svg {
+    transform:
+      rotate(
+        -7deg
+      )
+      scale(
+        1.06
+      );
+  }
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.vidya-footer-navigation {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap:
+    clamp(
+      45px,
+      5.8vw,
+      105px
+    );
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  padding-top:
+    2px;
+}
+
+
+/* =========================================================
+   COLUMN
+========================================================= */
+
+.vidya-footer-column {
+  min-width:
+    0;
+}
+
+
+.vidya-footer-column h3 {
+  margin-bottom:
+    27px;
+
+  color:
+    var(--footer-white);
+
+  font-size:
+    16px;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.35;
+
+  letter-spacing:
+    -0.02em;
+}
+
+
+/* =========================================================
+   LINK LIST
+========================================================= */
+
+.vidya-footer-column ul {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    17px;
+
+  list-style:
+    none;
+}
+
+
+.vidya-footer-column li {
+  width:
+    fit-content;
+}
+
+
+/* =========================================================
+   LINK
+========================================================= */
+
+.vidya-footer-column a {
+  position:
+    relative;
+
+  display:
+    inline-block;
+
+  color:
+    var(--footer-muted);
+
+  font-size:
+    14px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.45;
+
+  transition:
+    color
+      0.25s ease,
+    transform
+      0.3s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================================
+   LINK UNDERLINE
+========================================================= */
+
+.vidya-footer-column a::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    0;
+
+  bottom:
+    -5px;
+
+  width:
+    100%;
+
+  height:
+    1px;
+
+  background:
+    var(--footer-orange);
+
+  transform:
+    scaleX(0);
+
+  transform-origin:
+    right center;
+
+  transition:
+    transform
+      0.35s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .vidya-footer-column a:hover {
+    color:
+      var(--footer-white);
+
+    transform:
+      translateX(
+        3px
+      );
+  }
+
+
+  .vidya-footer-column a:hover::after {
+    transform:
+      scaleX(1);
+
+    transform-origin:
+      left center;
+  }
+
+}
+
+
+/* =========================================================
+   BIG WORDMARK AREA
+========================================================= */
+
+.vidya-footer-brand {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  margin-top:
+    clamp(
+      105px,
+      13vh,
+      175px
+    );
+
+  overflow:
+    visible;
+}
+
+
+/* =========================================================
+   LARGE VIDYA ACADEMY
+========================================================= */
+
+.vidya-footer-large-name {
+  display:
+    block;
+
+  width:
+    100%;
+
+  margin:
+    0;
+
+  color:
+    var(--footer-white);
+
+  font-size:
+    clamp(
+      78px,
+      8.5vw,
+      162px
+    );
+
+  font-weight:
+    700;
+
+  line-height:
+    0.9;
+
+  letter-spacing:
+    0.052em;
+
+  text-align:
+    center;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+
+  transform-origin:
+    center bottom;
+
+  will-change:
+    transform,
+    opacity,
+    letter-spacing;
+}
+
+
+/* =========================================================
+   LARGE WAVE
+========================================================= */
+
+.vidya-footer-wave {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  height:
+    clamp(
+      170px,
+      18vw,
+      295px
+    );
+
+  margin-top:
+    clamp(
+      55px,
+      6.5vw,
+      95px
+    );
+
+  color:
+    var(--footer-white);
+
+  overflow:
+    hidden;
+}
+
+
+/* =========================================================
+   WAVE INNER
+========================================================= */
+
+.vidya-footer-wave-inner {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  transform-origin:
+    center;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================================
+   WAVE SVG
+========================================================= */
+
+.vidya-footer-wave-svg {
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  overflow:
+    visible;
+}
+
+
+/* =========================================================
+   WAVE PATH
+========================================================= */
+
+.vidya-footer-wave-path {
+  vector-effect:
+    non-scaling-stroke;
+
+  stroke-dasharray:
+    1;
+
+  stroke-dashoffset:
+    0;
+
+  will-change:
+    stroke-dashoffset;
+}
+
+
+/* =========================================================
+   BOTTOM ROW
+========================================================= */
+
+.vidya-footer-bottom {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    30px;
+
+  width:
+    100%;
+
+  margin-top:
+    clamp(
+      25px,
+      3vw,
+      45px
+    );
+
+  padding-top:
+    27px;
+
+  border-top:
+    1px solid
+    var(--footer-line);
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.vidya-footer-bottom p {
+  color:
+    var(--footer-muted);
+
+  font-size:
+    11px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.5;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.vidya-footer a:focus-visible {
+  outline:
+    2px solid
+    var(--footer-orange);
+
+  outline-offset:
+    5px;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (
+  min-width: 1600px
+) {
+
+  .vidya-footer {
+    padding-top:
+      110px;
+  }
+
+
+  .vidya-footer-container {
+    width:
+      min(
+        1770px,
+        calc(
+          100% -
+          150px
+        )
+      );
+  }
+
+
+  .vidya-footer-top {
+    grid-template-columns:
+      minmax(
+        360px,
+        1.25fr
+      )
+      minmax(
+        0,
+        2.75fr
+      );
+  }
+
+
+  .vidya-footer-large-name {
+    font-size:
+      min(
+        8.6vw,
+        166px
+      );
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (
+  max-width: 1200px
+) {
+
+  .vidya-footer {
+    padding:
+      88px
+      0
+      26px;
+  }
+
+
+  .vidya-footer-container {
+    width:
+      calc(
+        100% -
+        72px
+      );
+  }
+
+
+  .vidya-footer-top {
+    grid-template-columns:
+      minmax(
+        270px,
+        1fr
+      )
+      minmax(
+        0,
+        2fr
+      );
+
+    gap:
+      60px;
+  }
+
+
+  .vidya-footer-navigation {
+    gap:
+      25px;
+  }
+
+
+  .vidya-footer-column h3 {
+    font-size:
+      15px;
+  }
+
+
+  .vidya-footer-column a {
+    font-size:
+      13px;
+  }
+
+
+  .vidya-footer-brand {
+    margin-top:
+      95px;
+  }
+
+
+  .vidya-footer-large-name {
+    font-size:
+      8.15vw;
+  }
+
+
+  .vidya-footer-wave {
+    margin-top:
+      46px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+  max-width: 900px
+) {
+
+  .vidya-footer {
+    min-height:
+      auto;
+
+    padding:
+      78px
+      0
+      24px;
+  }
+
+
+  .vidya-footer-container {
+    width:
+      calc(
+        100% -
+        48px
+      );
+  }
+
+
+  .vidya-footer-top {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      58px;
+  }
+
+
+  .vidya-footer-info {
+    max-width:
+      460px;
+  }
+
+
+  .vidya-footer-navigation {
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(
+          0,
+          1fr
+        )
+      );
+
+    gap:
+      25px;
+  }
+
+
+  .vidya-footer-brand {
+    margin-top:
+      82px;
+  }
+
+
+  .vidya-footer-large-name {
+    font-size:
+      8vw;
+
+    letter-spacing:
+      0.035em;
+  }
+
+
+  .vidya-footer-wave {
+    height:
+      150px;
+
+    margin-top:
+      38px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+  max-width: 600px
+) {
+
+  .vidya-footer {
+    min-height:
+      auto;
+
+    padding:
+      66px
+      0
+      20px;
+  }
+
+
+  .vidya-footer-container {
+    width:
+      calc(
+        100% -
+        36px
+      );
+  }
+
+
+  /* =======================================================
+     TOP
+  ======================================================= */
+
+  .vidya-footer-top {
+    gap:
+      50px;
+  }
+
+
+  .vidya-footer-intro {
+    font-size:
+      17px;
+  }
+
+
+  .vidya-footer-address {
+    margin-top:
+      24px;
+
+    font-size:
+      13px;
+  }
+
+
+  .vidya-footer-contact {
+    margin-top:
+      23px;
+  }
+
+
+  .vidya-footer-contact a {
+    font-size:
+      13px;
+  }
+
+
+  /* =======================================================
+     WHATSAPP
+  ======================================================= */
+
+  .vidya-footer-whatsapp {
+    min-width:
+      176px;
+
+    min-height:
+      45px;
+
+    margin-top:
+      22px;
+
+    padding:
+      0
+      14px;
+
+    font-size:
+      11px;
+  }
+
+
+  /* =======================================================
+     NAV
+  ======================================================= */
+
+  .vidya-footer-navigation {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+
+    gap:
+      37px
+      20px;
+  }
+
+
+  .vidya-footer-column:last-child {
+    grid-column:
+      1 / -1;
+  }
+
+
+  .vidya-footer-column h3 {
+    margin-bottom:
+      17px;
+
+    font-size:
+      14px;
+  }
+
+
+  .vidya-footer-column ul {
+    gap:
+      12px;
+  }
+
+
+  .vidya-footer-column a {
+    font-size:
+      12.5px;
+  }
+
+
+  /* =======================================================
+     LARGE WORD
+  ======================================================= */
+
+  .vidya-footer-brand {
+    margin-top:
+      72px;
+  }
+
+
+  .vidya-footer-large-name {
+    font-size:
+      7.8vw;
+
+    line-height:
+      0.95;
+
+    letter-spacing:
+      0.02em;
+  }
+
+
+  /* =======================================================
+     WAVE
+  ======================================================= */
+
+  .vidya-footer-wave {
+    height:
+      115px;
+
+    margin-top:
+      31px;
+  }
+
+
+  .vidya-footer-wave-svg {
+    width:
+      150%;
+
+    margin-left:
+      -25%;
+  }
+
+
+  /* =======================================================
+     BOTTOM
+  ======================================================= */
+
+  .vidya-footer-bottom {
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+    gap:
+      5px;
+
+    margin-top:
+      22px;
+
+    padding-top:
+      18px;
+  }
+
+
+  .vidya-footer-bottom p {
+    font-size:
+      10px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width: 380px
+) {
+
+  .vidya-footer-container {
+    width:
+      calc(
+        100% -
+        28px
+      );
+  }
+
+
+  .vidya-footer-navigation {
+    gap:
+      31px
+      14px;
+  }
+
+
+  .vidya-footer-large-name {
+    font-size:
+      7.6vw;
+  }
+
+
+  .vidya-footer-wave {
+    height:
+      100px;
+  }
+
+}
+
+
+/* =========================================================
+   SHORT DESKTOP
+========================================================= */
+
+@media (
+  min-width: 901px
+)
+and (
+  max-height: 760px
+) {
+
+  .vidya-footer {
+    padding-top:
+      70px;
+  }
+
+
+  .vidya-footer-brand {
+    margin-top:
+      70px;
+  }
+
+
+  .vidya-footer-wave {
+    height:
+      145px;
+
+    margin-top:
+      34px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .vidya-footer,
+  .vidya-footer *,
+  .vidya-footer *::before,
+  .vidya-footer *::after {
+    animation:
+      none !important;
+
+    transition:
+      none !important;
+  }
+
+
+  .vidya-footer {
+    transform:
+      none !important;
+  }
+
+
+  .vidya-footer-wave-path {
+    stroke-dashoffset:
+      0 !important;
+  }
+
+}

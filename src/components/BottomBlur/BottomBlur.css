@@ -1,0 +1,108 @@
+/* =========================================================
+   GLOBAL BOTTOM BLUR
+========================================================= */
+
+.global-bottom-blur {
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 900;
+
+  width: 100%;
+
+  /* Increased blur area height */
+  height: clamp(150px, 23vh, 240px);
+
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* =========================================================
+   PROGRESSIVE BLUR
+========================================================= */
+
+.global-bottom-blur-layer {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  /* Slightly stronger blur */
+  -webkit-backdrop-filter: blur(34px);
+  backdrop-filter: blur(34px);
+
+  /* Smooth blur transition from top to bottom */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.08) 12%,
+    rgba(0, 0, 0, 0.25) 28%,
+    rgba(0, 0, 0, 0.5) 48%,
+    rgba(0, 0, 0, 0.8) 70%,
+    rgba(0, 0, 0, 0.96) 88%,
+    #000000 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.08) 12%,
+    rgba(0, 0, 0, 0.25) 28%,
+    rgba(0, 0, 0, 0.5) 48%,
+    rgba(0, 0, 0, 0.8) 70%,
+    rgba(0, 0, 0, 0.96) 88%,
+    #000000 100%
+  );
+}
+
+/* =========================================================
+   SUBTLE COLOR FADE
+========================================================= */
+
+.global-bottom-blur-fade {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 45%,
+    rgba(22, 24, 25, 0.015) 65%,
+    rgba(22, 24, 25, 0.035) 85%,
+    rgba(22, 24, 25, 0.06) 100%
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+  .global-bottom-blur {
+    height: 175px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .global-bottom-blur {
+    height: 145px;
+  }
+
+  .global-bottom-blur-layer {
+    -webkit-backdrop-filter: blur(26px);
+    backdrop-filter: blur(26px);
+  }
+}

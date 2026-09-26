@@ -1,0 +1,1408 @@
+/* =========================================================
+   VIDYA ACADEMY — ACADEMIC PROGRAMMES
+
+   BRAND SYSTEM:
+   - Warm off-white background
+   - Vidya dark green headings
+   - Natural photography
+   - Orange used only as small interactive accent
+   - Same global website font
+   - Existing expanding card behaviour retained
+   - NO LINE ABOVE HEADING
+========================================================= */
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.academic-programs-section {
+  --academic-bg: #f7f6f1;
+
+  --academic-white: #ffffff;
+
+  --academic-green: #20684c;
+
+  --academic-green-dark: #184d3a;
+
+  --academic-green-deep: #143f30;
+
+  --academic-sage: #c7ddd0;
+
+  --academic-orange: #f39a20;
+
+  --academic-orange-soft: #fff0de;
+
+  --academic-text: #1f2f27;
+
+  --academic-muted: #66736c;
+
+  --academic-line:
+    rgba(
+      32,
+      104,
+      76,
+      0.13
+    );
+
+  --academic-transition:
+    0.75s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+
+  position: relative;
+
+  z-index: 1;
+
+  isolation: isolate;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding:
+    88px
+    0
+    100px;
+
+  background:
+    var(--academic-bg);
+
+  color:
+    var(--academic-text);
+
+  font-family:
+    var(
+      --font-primary,
+      inherit
+    );
+
+  overflow: hidden;
+
+  scroll-margin-top:
+    80px;
+}
+
+
+/* =========================================================
+   LOCAL RESET + FONT CONSISTENCY
+========================================================= */
+
+.academic-programs-section,
+.academic-programs-section *,
+.academic-programs-section *::before,
+.academic-programs-section *::after {
+  box-sizing:
+    border-box;
+
+  font-family:
+    inherit;
+}
+
+
+.academic-programs-section h1,
+.academic-programs-section h2,
+.academic-programs-section h3,
+.academic-programs-section p,
+.academic-programs-section span,
+.academic-programs-section button {
+  font-family:
+    inherit;
+}
+
+
+.academic-programs-section h2,
+.academic-programs-section h3,
+.academic-programs-section p {
+  margin: 0;
+}
+
+
+/* =========================================================
+   SOFT BACKGROUND DETAIL
+========================================================= */
+
+.academic-programs-section::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: 0;
+
+  top: -180px;
+
+  right: -180px;
+
+  width: 520px;
+
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+
+      rgba(
+        32,
+        104,
+        76,
+        0.055
+      )
+      0%,
+
+      rgba(
+        32,
+        104,
+        76,
+        0.015
+      )
+      50%,
+
+      transparent
+      72%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SUBTLE GREEN BACKGROUND CURVES
+========================================================= */
+
+.academic-background-lines {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+.academic-background-lines path {
+  fill: none;
+
+  stroke:
+    var(--academic-green);
+
+  stroke-width: 1.05;
+
+  opacity: 0.09;
+
+  stroke-linecap: round;
+
+  vector-effect:
+    non-scaling-stroke;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.academic-programs-container {
+  position: relative;
+
+  z-index: 1;
+
+  width:
+    min(
+      1500px,
+      calc(
+        100% -
+        100px
+      )
+    );
+
+  margin:
+    0 auto;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.academic-heading {
+  width: 100%;
+
+  margin-bottom:
+    38px;
+}
+
+
+.academic-heading h2 {
+  color:
+    var(--academic-green-dark);
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      38px,
+      4.3vw,
+      64px
+    );
+
+  font-weight: 600;
+
+  line-height: 1.06;
+
+  letter-spacing:
+    -0.055em;
+
+  text-wrap: balance;
+}
+
+
+/* =========================================================
+   CARDS CONTAINER
+========================================================= */
+
+.academic-cards {
+  display: flex;
+
+  width: 100%;
+
+  height: 455px;
+
+  gap: 12px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   INDIVIDUAL CARD
+========================================================= */
+
+.academic-card {
+  position: relative;
+
+  isolation: isolate;
+
+  flex:
+    1
+    1
+    0;
+
+  min-width: 0;
+
+  height: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 0;
+
+  background:
+    var(--academic-green-dark);
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    flex
+      var(
+        --academic-transition
+      ),
+    box-shadow
+      0.5s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+
+  will-change: flex;
+}
+
+
+/* =========================================================
+   ACTIVE CARD EXPANSION
+========================================================= */
+
+.academic-card.active {
+  flex:
+    2.35
+    1
+    0;
+
+  box-shadow:
+    0
+    18px
+    46px
+    rgba(
+      24,
+      77,
+      58,
+      0.15
+    );
+}
+
+
+/* =========================================================
+   KEYBOARD FOCUS
+========================================================= */
+
+.academic-card:focus-visible {
+  outline:
+    2px solid
+    var(--academic-orange);
+
+  outline-offset:
+    -4px;
+}
+
+
+/* =========================================================
+   CARD IMAGE
+========================================================= */
+
+.academic-card-image {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  max-width: none;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transform:
+    scale(1.01);
+
+  transition:
+    transform
+      1s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    filter
+      0.75s ease;
+}
+
+
+/* =========================================================
+   ACTIVE IMAGE ZOOM
+========================================================= */
+
+.academic-card.active
+.academic-card-image {
+  transform:
+    scale(1.055);
+}
+
+
+/* =========================================================
+   DARK GREEN IMAGE OVERLAY
+========================================================= */
+
+.academic-card-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+
+      rgba(
+        14,
+        44,
+        32,
+        0.02
+      )
+      0%,
+
+      rgba(
+        14,
+        44,
+        32,
+        0.04
+      )
+      30%,
+
+      rgba(
+        14,
+        44,
+        32,
+        0.24
+      )
+      55%,
+
+      rgba(
+        14,
+        44,
+        32,
+        0.72
+      )
+      82%,
+
+      rgba(
+        12,
+        37,
+        28,
+        0.94
+      )
+      100%
+    );
+
+  pointer-events: none;
+
+  transition:
+    background
+      0.45s ease;
+}
+
+
+/* =========================================================
+   ACTIVE CARD OVERLAY
+========================================================= */
+
+.academic-card.active
+.academic-card-overlay {
+  background:
+    linear-gradient(
+      180deg,
+
+      rgba(
+        14,
+        44,
+        32,
+        0
+      )
+      0%,
+
+      rgba(
+        14,
+        44,
+        32,
+        0.02
+      )
+      35%,
+
+      rgba(
+        14,
+        44,
+        32,
+        0.18
+      )
+      56%,
+
+      rgba(
+        14,
+        44,
+        32,
+        0.68
+      )
+      82%,
+
+      rgba(
+        12,
+        37,
+        28,
+        0.94
+      )
+      100%
+    );
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.academic-card-content {
+  position: absolute;
+
+  left: 0;
+
+  right: 0;
+
+  bottom: 0;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  justify-content: flex-end;
+
+  width: 100%;
+
+  padding:
+    27px
+    22px
+    25px;
+
+  color:
+    var(--academic-white);
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   AGE / GRADE LABEL
+========================================================= */
+
+.academic-card-age {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 10px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.78
+    );
+
+  font-family: inherit;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  line-height: 1.45;
+
+  letter-spacing:
+    0.11em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SMALL ORANGE GRADE ACCENT
+========================================================= */
+
+.academic-card-age::before {
+  content: "";
+
+  display: block;
+
+  width: 14px;
+
+  height: 2px;
+
+  flex:
+    0
+    0
+    auto;
+
+  background:
+    var(--academic-orange);
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.academic-card-title {
+  width: 100%;
+
+  color: #ffffff;
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      20px,
+      2vw,
+      31px
+    );
+
+  font-weight: 600;
+
+  line-height: 1.12;
+
+  letter-spacing:
+    -0.045em;
+
+  overflow-wrap:
+    break-word;
+
+  text-wrap: balance;
+}
+
+
+/* =========================================================
+   EXPANDING CARD DETAILS
+========================================================= */
+
+.academic-card-details {
+  width: 100%;
+
+  max-height: 0;
+
+  opacity: 0;
+
+  overflow: hidden;
+
+  transform:
+    translateY(
+      10px
+    );
+
+  transition:
+    max-height
+      0.65s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    opacity
+      0.4s ease,
+    transform
+      0.55s ease;
+}
+
+
+/* =========================================================
+   ACTIVE DETAILS
+========================================================= */
+
+.academic-card.active
+.academic-card-details {
+  max-height: 180px;
+
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
+
+.academic-card-details p {
+  max-width:
+    420px;
+
+  margin-top:
+    13px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.86
+    );
+
+  font-family:
+    inherit !important;
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  line-height: 1.62;
+
+  letter-spacing:
+    -0.008em;
+}
+
+
+/* =========================================================
+   CARD ARROW
+========================================================= */
+
+.academic-card-arrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 34px;
+
+  height: 34px;
+
+  margin-top: 15px;
+
+  color: #ffffff;
+
+  background: transparent;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+
+  border-radius: 0;
+
+  font-family: inherit;
+
+  font-size: 17px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  transition:
+    background-color
+      0.3s ease,
+    border-color
+      0.3s ease,
+    color
+      0.3s ease,
+    transform
+      0.35s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================================
+   ACTIVE ARROW
+========================================================= */
+
+.academic-card.active
+.academic-card-arrow {
+  background:
+    var(--academic-orange);
+
+  border-color:
+    var(--academic-orange);
+
+  color:
+    var(--academic-green-deep);
+
+  transform:
+    translateX(
+      2px
+    );
+}
+
+
+/* =========================================================
+   DESKTOP HOVER
+========================================================= */
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .academic-card:hover
+  .academic-card-image {
+    transform:
+      scale(1.035);
+  }
+
+
+  .academic-card.active:hover
+  .academic-card-image {
+    transform:
+      scale(1.065);
+  }
+
+
+  .academic-card:hover
+  .academic-card-arrow {
+    border-color:
+      var(--academic-orange);
+  }
+
+
+  .academic-card.active:hover
+  .academic-card-arrow {
+    transform:
+      translateX(
+        5px
+      );
+  }
+
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+========================================================= */
+
+.academic-programs-section
+::selection {
+  background:
+    var(--academic-orange);
+
+  color:
+    var(--academic-green-deep);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (
+  min-width: 1501px
+) {
+
+  .academic-programs-section {
+    padding:
+      100px
+      0
+      115px;
+  }
+
+
+  .academic-programs-container {
+    width:
+      min(
+        1550px,
+        calc(
+          100% -
+          120px
+        )
+      );
+  }
+
+
+  .academic-heading {
+    margin-bottom:
+      42px;
+  }
+
+
+  .academic-cards {
+    height: 495px;
+
+    gap: 14px;
+  }
+
+
+  .academic-card-content {
+    padding:
+      31px
+      28px
+      28px;
+  }
+
+
+  .academic-card-title {
+    font-size: 34px;
+  }
+
+
+  .academic-card-details p {
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (
+  max-width: 1200px
+) {
+
+  .academic-programs-section {
+    padding:
+      78px
+      0
+      90px;
+  }
+
+
+  .academic-programs-container {
+    width:
+      calc(
+        100% -
+        64px
+      );
+  }
+
+
+  .academic-heading h2 {
+    font-size:
+      clamp(
+        36px,
+        4.5vw,
+        54px
+      );
+  }
+
+
+  .academic-cards {
+    height: 420px;
+
+    gap: 10px;
+  }
+
+
+  .academic-card.active {
+    flex:
+      2.5
+      1
+      0;
+  }
+
+
+  .academic-card-content {
+    padding:
+      24px
+      17px
+      22px;
+  }
+
+
+  .academic-card-title {
+    font-size:
+      clamp(
+        19px,
+        2.2vw,
+        27px
+      );
+  }
+
+
+  .academic-card-details p {
+    font-size: 12px;
+
+    line-height: 1.6;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+  max-width: 900px
+) {
+
+  .academic-programs-section {
+    padding:
+      70px
+      0
+      80px;
+  }
+
+
+  .academic-programs-container {
+    width:
+      calc(
+        100% -
+        40px
+      );
+  }
+
+
+  .academic-heading {
+    margin-bottom:
+      28px;
+  }
+
+
+  .academic-heading h2 {
+    font-size: 43px;
+  }
+
+
+  /* TWO CARDS PER ROW */
+
+  .academic-cards {
+    display: grid;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+
+    height: auto;
+
+    gap: 12px;
+
+    overflow: visible;
+  }
+
+
+  .academic-card,
+  .academic-card.active {
+    width: 100%;
+
+    height: 365px;
+
+    flex: none;
+  }
+
+
+  .academic-card-content {
+    padding:
+      24px
+      20px;
+  }
+
+
+  .academic-card-title {
+    font-size: 27px;
+  }
+
+
+  .academic-card-details p {
+    font-size: 12.5px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE — HORIZONTAL SWIPE
+========================================================= */
+
+@media (
+  max-width: 600px
+) {
+
+  .academic-programs-section {
+    padding:
+      60px
+      0
+      72px;
+
+    scroll-margin-top:
+      68px;
+  }
+
+
+  .academic-programs-container {
+    width: 100%;
+  }
+
+
+  .academic-heading {
+    width:
+      calc(
+        100% -
+        40px
+      );
+
+    margin:
+      0
+      auto
+      25px;
+  }
+
+
+  .academic-heading h2 {
+    font-size:
+      clamp(
+        34px,
+        9vw,
+        44px
+      );
+
+    line-height: 1.05;
+  }
+
+
+  /* =======================================================
+     HORIZONTAL CAROUSEL
+  ======================================================= */
+
+  .academic-cards {
+    display: flex;
+
+    width: 100%;
+
+    height: 395px;
+
+    gap: 12px;
+
+    padding:
+      0
+      20px
+      8px;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    scroll-snap-type:
+      x mandatory;
+
+    scroll-behavior:
+      smooth;
+
+    -webkit-overflow-scrolling:
+      touch;
+
+    scrollbar-width: none;
+  }
+
+
+  .academic-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  .academic-card,
+  .academic-card.active {
+    flex:
+      0
+      0
+      83%;
+
+    width: 83%;
+
+    height: 100%;
+
+    scroll-snap-align:
+      center;
+
+    transition: none;
+  }
+
+
+  .academic-card-content {
+    padding:
+      24px
+      21px;
+  }
+
+
+  .academic-card-age {
+    font-size: 8px;
+  }
+
+
+  .academic-card-title {
+    font-size:
+      clamp(
+        25px,
+        7vw,
+        32px
+      );
+  }
+
+
+  /* =======================================================
+     ALWAYS SHOW DESCRIPTIONS ON MOBILE
+  ======================================================= */
+
+  .academic-card-details,
+  .academic-card.active
+  .academic-card-details {
+    max-height:
+      180px;
+
+    opacity: 1;
+
+    transform: none;
+  }
+
+
+  .academic-card-details p {
+    font-size: 12.5px;
+
+    line-height: 1.56;
+  }
+
+
+  .academic-card-arrow {
+    width: 32px;
+
+    height: 32px;
+
+    margin-top: 12px;
+
+    font-size: 16px;
+  }
+
+
+  .academic-card-image,
+  .academic-card.active
+  .academic-card-image {
+    transform:
+      scale(1.01);
+  }
+
+
+  .academic-card.active
+  .academic-card-arrow {
+    background:
+      var(--academic-orange);
+
+    border-color:
+      var(--academic-orange);
+
+    color:
+      var(--academic-green-deep);
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width: 380px
+) {
+
+  .academic-heading {
+    width:
+      calc(
+        100% -
+        32px
+      );
+  }
+
+
+  .academic-heading h2 {
+    font-size: 33px;
+  }
+
+
+  .academic-cards {
+    height: 375px;
+
+    padding-inline:
+      16px;
+  }
+
+
+  .academic-card,
+  .academic-card.active {
+    flex-basis:
+      88%;
+
+    width: 88%;
+  }
+
+
+  .academic-card-content {
+    padding:
+      21px
+      18px;
+  }
+
+
+  .academic-card-title {
+    font-size: 25px;
+  }
+
+
+  .academic-card-details p {
+    font-size: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (
+  hover: none
+) {
+
+  .academic-card-image,
+  .academic-card.active
+  .academic-card-image {
+    transform:
+      scale(1.01);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .academic-card,
+  .academic-card-image,
+  .academic-card-details,
+  .academic-card-arrow {
+    transition:
+      none !important;
+  }
+
+
+  .academic-cards {
+    scroll-behavior:
+      auto;
+  }
+
+}

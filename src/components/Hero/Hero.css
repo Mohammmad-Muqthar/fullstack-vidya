@@ -1,0 +1,1096 @@
+/* =========================================================
+   VIDYA ACADEMY — HERO
+
+   BRAND SYSTEM:
+   - Natural school video
+   - Vidya green cinematic overlay
+   - White typography
+   - Same global website font
+   - Premium / clean appearance
+========================================================= */
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.vidya-hero {
+  --hero-green:
+    #20684c;
+
+  --hero-green-dark:
+    #184d3a;
+
+  --hero-green-deep:
+    #102f24;
+
+  --hero-white:
+    #ffffff;
+
+
+  position: relative;
+
+  width: 100%;
+
+  height: 100svh;
+
+  min-height: 650px;
+
+  margin: 0;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  background:
+    var(--hero-green-dark);
+
+  color:
+    var(--hero-white);
+
+  /*
+    IMPORTANT:
+    SAME GLOBAL FONT AS NAVBAR
+    AND REST OF WEBSITE
+  */
+
+  font-family:
+    inherit !important;
+
+  isolation:
+    isolate;
+}
+
+
+/* =========================================================
+   FONT CONSISTENCY
+========================================================= */
+
+.vidya-hero,
+.vidya-hero *,
+.vidya-hero *::before,
+.vidya-hero *::after {
+  box-sizing:
+    border-box;
+
+  font-family:
+    inherit;
+}
+
+
+.vidya-hero h1,
+.vidya-hero h2,
+.vidya-hero h3,
+.vidya-hero p,
+.vidya-hero span {
+  font-family:
+    inherit;
+}
+
+
+/* =========================================================
+   VIDEO BOX
+========================================================= */
+
+.vidya-hero-video-box {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  z-index:
+    1;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  overflow:
+    hidden;
+
+  background:
+    var(--hero-green-dark);
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.vidya-hero-video {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  max-width:
+    none;
+
+  object-fit:
+    cover;
+
+  object-position:
+    center center;
+
+  pointer-events:
+    none;
+
+  user-select:
+    none;
+
+  -webkit-user-drag:
+    none;
+
+  transform:
+    translateZ(0);
+
+  backface-visibility:
+    hidden;
+}
+
+
+/* =========================================================
+   MAIN VIDEO OVERLAY
+
+   Green-tinted cinematic treatment.
+
+   Keeps video visible and natural.
+========================================================= */
+
+.vidya-hero-overlay {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  z-index:
+    2;
+
+  pointer-events:
+    none;
+
+  background:
+    linear-gradient(
+      180deg,
+
+      rgba(
+        16,
+        47,
+        36,
+        0.10
+      )
+      0%,
+
+      rgba(
+        16,
+        47,
+        36,
+        0.03
+      )
+      28%,
+
+      rgba(
+        16,
+        47,
+        36,
+        0.08
+      )
+      50%,
+
+      rgba(
+        16,
+        47,
+        36,
+        0.31
+      )
+      76%,
+
+      rgba(
+        16,
+        47,
+        36,
+        0.74
+      )
+      100%
+    );
+}
+
+
+/* =========================================================
+   LOWER GRADIENT
+
+   Gives enough contrast for KNOWN
+   and description without making
+   whole video dark.
+========================================================= */
+
+.vidya-hero-video-box::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  z-index:
+    3;
+
+  left:
+    0;
+
+  right:
+    0;
+
+  bottom:
+    0;
+
+  height:
+    47%;
+
+  pointer-events:
+    none;
+
+  background:
+    linear-gradient(
+      to top,
+
+      rgba(
+        11,
+        40,
+        29,
+        0.64
+      )
+      0%,
+
+      rgba(
+        14,
+        46,
+        34,
+        0.26
+      )
+      48%,
+
+      rgba(
+        18,
+        55,
+        41,
+        0.07
+      )
+      78%,
+
+      transparent
+      100%
+    );
+}
+
+
+/* =========================================================
+   BOTTOM LAYOUT
+========================================================= */
+
+.vidya-hero-bottom {
+  position:
+    absolute;
+
+  z-index:
+    10;
+
+  left:
+    clamp(
+      35px,
+      7vw,
+      125px
+    );
+
+  right:
+    clamp(
+      30px,
+      5vw,
+      90px
+    );
+
+  bottom:
+    clamp(
+      28px,
+      3.3vw,
+      56px
+    );
+
+  display:
+    grid;
+
+  grid-template-columns:
+    clamp(
+      250px,
+      21vw,
+      350px
+    )
+    minmax(
+      0,
+      1fr
+    );
+
+  align-items:
+    end;
+
+  column-gap:
+    clamp(
+      40px,
+      5vw,
+      90px
+    );
+
+  width:
+    auto;
+
+  font-family:
+    inherit !important;
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   LEFT DESCRIPTION
+========================================================= */
+
+.vidya-hero-description {
+  width:
+    100%;
+
+  padding-bottom:
+    clamp(
+      12px,
+      1.7vw,
+      30px
+    );
+}
+
+
+/* =========================================================
+   DESCRIPTION TEXT
+========================================================= */
+
+.vidya-hero-description p {
+  margin:
+    0;
+
+  padding:
+    0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.92
+    );
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      13px,
+      0.95vw,
+      16px
+    );
+
+  /*
+    Same body-copy weight
+    across the website.
+  */
+
+  font-weight:
+    400;
+
+  line-height:
+    1.62;
+
+  letter-spacing:
+    -0.012em;
+
+  text-align:
+    right;
+
+  text-wrap:
+    pretty;
+
+  text-shadow:
+    0
+    2px
+    16px
+    rgba(
+      0,
+      0,
+      0,
+      0.24
+    );
+}
+
+
+/* =========================================================
+   LARGE WORD AREA
+========================================================= */
+
+.vidya-hero-word-area {
+  position:
+    relative;
+
+  display:
+    flex;
+
+  align-items:
+    flex-end;
+
+  justify-content:
+    flex-start;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  overflow:
+    visible;
+}
+
+
+/* =========================================================
+   LARGE WORD — KNOWN
+
+   SAME WEBSITE FONT
+========================================================= */
+
+.vidya-hero
+.vidya-hero-big-word {
+  display:
+    block;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  color:
+    #ffffff;
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      145px,
+      17vw,
+      320px
+    );
+
+  /*
+    Slightly cleaner than previous 700.
+
+    Still strong enough for hero.
+  */
+
+  font-weight:
+    600;
+
+  line-height:
+    0.74;
+
+  letter-spacing:
+    -0.065em;
+
+  white-space:
+    nowrap;
+
+  text-transform:
+    uppercase;
+
+  text-align:
+    left;
+
+  transform:
+    translateY(
+      0.025em
+    );
+
+  transform-origin:
+    left bottom;
+
+  text-shadow:
+    0
+    4px
+    24px
+    rgba(
+      0,
+      0,
+      0,
+      0.1
+    );
+}
+
+
+/* =========================================================
+   OPTIONAL TEXT SELECTION
+========================================================= */
+
+.vidya-hero::selection,
+.vidya-hero *::selection {
+  background:
+    #f39a20;
+
+  color:
+    #184d3a;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (
+  min-width: 1600px
+) {
+
+  .vidya-hero-bottom {
+    left:
+      8.5vw;
+
+    right:
+      5vw;
+
+    bottom:
+      44px;
+
+    grid-template-columns:
+      355px
+      minmax(
+        0,
+        1fr
+      );
+
+    column-gap:
+      78px;
+  }
+
+
+  .vidya-hero-description {
+    padding-bottom:
+      28px;
+  }
+
+
+  .vidya-hero-description p {
+    font-size:
+      16px;
+
+    line-height:
+      1.62;
+  }
+
+
+  .vidya-hero
+  .vidya-hero-big-word {
+    font-size:
+      17vw;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (
+  max-width: 1366px
+) {
+
+  .vidya-hero {
+    min-height:
+      620px;
+  }
+
+
+  .vidya-hero-bottom {
+    left:
+      54px;
+
+    right:
+      40px;
+
+    bottom:
+      31px;
+
+    grid-template-columns:
+      255px
+      minmax(
+        0,
+        1fr
+      );
+
+    column-gap:
+      46px;
+  }
+
+
+  .vidya-hero-description {
+    padding-bottom:
+      14px;
+  }
+
+
+  .vidya-hero-description p {
+    font-size:
+      12.5px;
+
+    line-height:
+      1.58;
+  }
+
+
+  .vidya-hero
+  .vidya-hero-big-word {
+    font-size:
+      clamp(
+        135px,
+        17vw,
+        235px
+      );
+  }
+
+}
+
+
+/* =========================================================
+   SMALL LAPTOP
+========================================================= */
+
+@media (
+  max-width: 1100px
+) {
+
+  .vidya-hero-bottom {
+    left:
+      35px;
+
+    right:
+      28px;
+
+    bottom:
+      26px;
+
+    grid-template-columns:
+      220px
+      minmax(
+        0,
+        1fr
+      );
+
+    column-gap:
+      30px;
+  }
+
+
+  .vidya-hero-description p {
+    font-size:
+      11.5px;
+
+    line-height:
+      1.52;
+  }
+
+
+  .vidya-hero
+  .vidya-hero-big-word {
+    font-size:
+      17.5vw;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (
+  max-width: 768px
+) {
+
+  .vidya-hero {
+    height:
+      100svh;
+
+    min-height:
+      620px;
+  }
+
+
+  /* =======================================================
+     VIDEO POSITION
+  ======================================================= */
+
+  .vidya-hero-video {
+    object-position:
+      center center;
+  }
+
+
+  /* =======================================================
+     MOBILE OVERLAY
+
+     Slightly darker at bottom
+     for smaller text.
+  ======================================================= */
+
+  .vidya-hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+
+        rgba(
+          16,
+          47,
+          36,
+          0.10
+        )
+        0%,
+
+        rgba(
+          16,
+          47,
+          36,
+          0.04
+        )
+        30%,
+
+        rgba(
+          16,
+          47,
+          36,
+          0.12
+        )
+        50%,
+
+        rgba(
+          16,
+          47,
+          36,
+          0.42
+        )
+        76%,
+
+        rgba(
+          16,
+          47,
+          36,
+          0.78
+        )
+        100%
+      );
+  }
+
+
+  /* =======================================================
+     DARKER LOWER GRADIENT
+  ======================================================= */
+
+  .vidya-hero-video-box::after {
+    height:
+      62%;
+
+    background:
+      linear-gradient(
+        to top,
+
+        rgba(
+          10,
+          37,
+          27,
+          0.78
+        )
+        0%,
+
+        rgba(
+          12,
+          42,
+          31,
+          0.32
+        )
+        48%,
+
+        rgba(
+          18,
+          58,
+          42,
+          0.08
+        )
+        78%,
+
+        transparent
+        100%
+      );
+  }
+
+
+  /* =======================================================
+     STACK BOTTOM CONTENT
+  ======================================================= */
+
+  .vidya-hero-bottom {
+    left:
+      20px;
+
+    right:
+      20px;
+
+    bottom:
+      22px;
+
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+    gap:
+      20px;
+  }
+
+
+  /* =======================================================
+     DESCRIPTION
+  ======================================================= */
+
+  .vidya-hero-description {
+    width:
+      min(
+        305px,
+        82vw
+      );
+
+    padding-bottom:
+      0;
+  }
+
+
+  .vidya-hero-description p {
+    font-family:
+      inherit !important;
+
+    font-size:
+      11px;
+
+    font-weight:
+      400;
+
+    line-height:
+      1.55;
+
+    letter-spacing:
+      -0.01em;
+
+    text-align:
+      left;
+
+    text-shadow:
+      0
+      2px
+      14px
+      rgba(
+        0,
+        0,
+        0,
+        0.24
+      );
+  }
+
+
+  /* =======================================================
+     BIG WORD
+  ======================================================= */
+
+  .vidya-hero-word-area {
+    width:
+      100%;
+  }
+
+
+  .vidya-hero
+  .vidya-hero-big-word {
+    font-family:
+      inherit !important;
+
+    font-size:
+      clamp(
+        88px,
+        25vw,
+        145px
+      );
+
+    font-weight:
+      600;
+
+    line-height:
+      0.76;
+
+    letter-spacing:
+      -0.06em;
+
+    transform:
+      none;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width: 430px
+) {
+
+  .vidya-hero {
+    min-height:
+      590px;
+  }
+
+
+  .vidya-hero-bottom {
+    left:
+      17px;
+
+    right:
+      17px;
+
+    bottom:
+      18px;
+
+    gap:
+      17px;
+  }
+
+
+  .vidya-hero-description {
+    width:
+      270px;
+  }
+
+
+  .vidya-hero-description p {
+    font-size:
+      10px;
+
+    line-height:
+      1.52;
+  }
+
+
+  .vidya-hero
+  .vidya-hero-big-word {
+    font-size:
+      clamp(
+        76px,
+        24vw,
+        112px
+      );
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width: 360px
+) {
+
+  .vidya-hero {
+    min-height:
+      570px;
+  }
+
+
+  .vidya-hero-bottom {
+    left:
+      14px;
+
+    right:
+      14px;
+
+    bottom:
+      15px;
+  }
+
+
+  .vidya-hero-description {
+    width:
+      245px;
+  }
+
+
+  .vidya-hero-description p {
+    font-size:
+      9.5px;
+  }
+
+
+  .vidya-hero
+  .vidya-hero-big-word {
+    font-size:
+      clamp(
+        70px,
+        23vw,
+        100px
+      );
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .vidya-hero-bottom,
+  .vidya-hero-description,
+  .vidya-hero-word-area,
+  .vidya-hero-overlay,
+  .vidya-hero-video {
+    transition:
+      none !important;
+
+    animation:
+      none !important;
+  }
+
+}

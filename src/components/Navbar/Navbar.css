@@ -1,0 +1,1980 @@
+/* =========================================================
+   VIDYA ACADEMY — NAVBAR
+
+   HERO:
+   - Transparent
+   - White logo
+   - White navigation
+
+   SCROLLED:
+   - Warm cream background
+   - Green logo
+   - Green navigation
+
+   INTERACTION:
+   - ALL navigation links turn orange on hover
+   - Contact button turns orange
+   - Same behaviour for visited links
+
+   FONT:
+   - Uses global website font
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+.raya-navbar {
+  --nav-green: #20684c;
+  --nav-green-dark: #184d3a;
+  --nav-green-deep: #143f30;
+
+  --nav-orange: #f39a20;
+  --nav-orange-soft: #fff0de;
+
+  --nav-cream: #f7f6f1;
+  --nav-white: #ffffff;
+
+  --nav-charcoal: #1e2421;
+  --nav-muted: #66736c;
+
+  --nav-border:
+    rgba(
+      32,
+      104,
+      76,
+      0.13
+    );
+}
+
+
+/* =========================================================
+   NAVBAR ROOT
+========================================================= */
+
+.raya-navbar {
+  position: absolute;
+
+  top: 10px;
+  left: 0;
+  right: 0;
+
+  z-index: 9999;
+
+  width: 100%;
+  height: 90px;
+
+  margin: 0;
+
+  background:
+    transparent;
+
+  border:
+    0;
+
+  outline:
+    0;
+
+  font-family:
+    var(
+      --font-primary,
+      inherit
+    );
+
+  opacity: 1;
+
+  transform:
+    translateY(0);
+
+  pointer-events:
+    auto;
+
+  transition:
+    background-color
+      0.35s ease,
+    border-color
+      0.35s ease,
+    box-shadow
+      0.35s ease,
+    transform
+      0.48s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    opacity
+      0.3s ease;
+}
+
+
+/* =========================================================
+   RESET / FONT CONSISTENCY
+========================================================= */
+
+.raya-navbar,
+.raya-navbar *,
+.raya-navbar *::before,
+.raya-navbar *::after {
+  box-sizing:
+    border-box;
+
+  font-family:
+    inherit;
+}
+
+
+/* =========================================================
+   TOP / HERO STATE
+========================================================= */
+
+.raya-navbar.is-top {
+  position:
+    absolute;
+
+  top:
+    10px;
+
+  background:
+    transparent;
+
+  border-bottom:
+    0;
+
+  box-shadow:
+    none;
+
+  opacity:
+    1;
+
+  transform:
+    translateY(0);
+
+  pointer-events:
+    auto;
+}
+
+
+/* =========================================================
+   SCROLLED / VISIBLE
+========================================================= */
+
+.raya-navbar.is-scrolled.is-visible {
+  position:
+    fixed;
+
+  top:
+    0;
+  left:
+    0;
+  right:
+    0;
+
+  background:
+    rgba(
+      247,
+      246,
+      241,
+      0.98
+    );
+
+  border-bottom:
+    1px solid
+    var(--nav-border);
+
+  box-shadow:
+    0
+    8px
+    28px
+    rgba(
+      24,
+      77,
+      58,
+      0.08
+    );
+
+  opacity:
+    1;
+
+  transform:
+    translateY(0);
+
+  pointer-events:
+    auto;
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  backdrop-filter:
+    blur(12px);
+}
+
+
+/* =========================================================
+   HIDDEN WHILE SCROLLING DOWN
+========================================================= */
+
+.raya-navbar.is-hidden {
+  position:
+    fixed;
+
+  top:
+    0;
+  left:
+    0;
+  right:
+    0;
+
+  background:
+    var(--nav-cream);
+
+  border-bottom:
+    1px solid
+    var(--nav-border);
+
+  box-shadow:
+    none;
+
+  opacity:
+    0;
+
+  transform:
+    translateY(-110%);
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.raya-navbar-container {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    clamp(
+      24px,
+      2.5vw,
+      48px
+    );
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  padding:
+    0
+    clamp(
+      30px,
+      5vw,
+      95px
+    );
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.raya-navbar-logo {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    flex-start;
+
+  flex:
+    0
+    0
+    auto;
+
+  width:
+    clamp(
+      165px,
+      13.5vw,
+      220px
+    );
+
+  height:
+    100%;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  border:
+    0;
+
+  outline:
+    0;
+
+  text-decoration:
+    none;
+}
+
+
+/* =========================================================
+   LOGO IMAGE
+========================================================= */
+
+.raya-navbar-logo-image {
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    auto;
+
+  max-height:
+    68px;
+
+  object-fit:
+    contain;
+
+  object-position:
+    left center;
+
+  border:
+    0;
+
+  outline:
+    0;
+
+  filter:
+    none;
+
+  transition:
+    opacity
+      0.25s ease,
+    filter
+      0.35s ease,
+    transform
+      0.35s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================================
+   HERO LOGO
+========================================================= */
+
+.raya-navbar.is-top
+.raya-navbar-logo-image {
+  filter:
+    none;
+}
+
+
+/* =========================================================
+   SCROLLED LOGO → GREEN
+========================================================= */
+
+.raya-navbar.is-scrolled
+.raya-navbar-logo-image,
+.raya-navbar.is-hidden
+.raya-navbar-logo-image {
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(34%)
+    sepia(22%)
+    saturate(1240%)
+    hue-rotate(103deg)
+    brightness(88%)
+    contrast(89%);
+}
+
+
+/* =========================================================
+   LOGO HOVER
+========================================================= */
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .raya-navbar-logo:hover
+  .raya-navbar-logo-image {
+    opacity:
+      0.94;
+
+    transform:
+      translateY(
+        -1px
+      );
+  }
+
+}
+
+
+/* =========================================================
+   CENTER MENU
+========================================================= */
+
+.raya-navbar-menu {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  flex:
+    1
+    1
+    auto;
+
+  min-width:
+    0;
+}
+
+
+/* =========================================================
+   LINKS CONTAINER
+========================================================= */
+
+.raya-navbar-links {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    clamp(
+      25px,
+      2.2vw,
+      43px
+    );
+
+  width:
+    100%;
+}
+
+
+/* =========================================================
+   NAVIGATION LINK
+========================================================= */
+
+.raya-navbar-link {
+  position:
+    relative;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  min-height:
+    52px;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.94
+    );
+
+  background:
+    transparent;
+
+  border:
+    0;
+
+  outline:
+    0;
+
+  box-shadow:
+    none;
+
+  font-family:
+    inherit;
+
+  font-size:
+    clamp(
+      13px,
+      0.92vw,
+      15px
+    );
+
+  font-weight:
+    500;
+
+  line-height:
+    1.2;
+
+  letter-spacing:
+    0.035em;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+
+  text-decoration:
+    none;
+
+  transform:
+    translateY(0);
+
+  transition:
+    color
+      0.25s ease,
+    opacity
+      0.25s ease,
+    transform
+      0.3s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================================
+   TOP STATE
+
+   VISITED MUST LOOK THE SAME AS NORMAL.
+========================================================= */
+
+.raya-navbar.is-top
+.raya-navbar-link,
+.raya-navbar.is-top
+.raya-navbar-link:visited {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.94
+    );
+
+  text-decoration:
+    none;
+}
+
+
+/* =========================================================
+   SCROLLED STATE
+========================================================= */
+
+.raya-navbar.is-scrolled
+.raya-navbar-link,
+.raya-navbar.is-scrolled
+.raya-navbar-link:visited {
+  color:
+    var(--nav-green-dark);
+
+  text-decoration:
+    none;
+}
+
+
+/* =========================================================
+   HIDDEN NAV STATE
+========================================================= */
+
+.raya-navbar.is-hidden
+.raya-navbar-link,
+.raya-navbar.is-hidden
+.raya-navbar-link:visited {
+  color:
+    var(--nav-green-dark);
+
+  text-decoration:
+    none;
+}
+
+
+/* =========================================================
+   LINK STATE RESET
+
+   IMPORTANT:
+   Do not put color here.
+========================================================= */
+
+.raya-navbar-link,
+.raya-navbar-link:visited,
+.raya-navbar-link:active,
+.raya-navbar-link:focus,
+.raya-navbar-link:focus-visible,
+.raya-navbar-link:hover {
+  text-decoration:
+    none;
+
+  border-bottom:
+    0;
+
+  box-shadow:
+    none;
+}
+
+
+/* =========================================================
+   REMOVE OLD UNDERLINES / PSEUDO ELEMENTS
+========================================================= */
+
+.raya-navbar-link::before,
+.raya-navbar-link::after,
+.raya-navbar-link:visited::before,
+.raya-navbar-link:visited::after,
+.raya-navbar-link:hover::before,
+.raya-navbar-link:hover::after,
+.raya-navbar-link:active::before,
+.raya-navbar-link:active::after,
+.raya-navbar-link:focus::before,
+.raya-navbar-link:focus::after,
+.raya-navbar-link:focus-visible::before,
+.raya-navbar-link:focus-visible::after {
+  content:
+    none !important;
+
+  display:
+    none !important;
+
+  width:
+    0 !important;
+
+  height:
+    0 !important;
+
+  background:
+    transparent !important;
+
+  border:
+    0 !important;
+
+  box-shadow:
+    none !important;
+}
+
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.raya-navbar-link:active {
+  outline:
+    0;
+
+  opacity:
+    0.9;
+}
+
+
+/* =========================================================
+   KEYBOARD FOCUS
+========================================================= */
+
+.raya-navbar-link:focus {
+  outline:
+    0;
+}
+
+
+.raya-navbar-link:focus-visible {
+  outline:
+    2px solid
+    var(--nav-orange);
+
+  outline-offset:
+    5px;
+}
+
+
+/* =========================================================
+   NAV LINK HOVER
+
+   VERY IMPORTANT:
+
+   THIS COMES AFTER VISITED / ACTIVE / FOCUS.
+
+   EVERY LINK:
+   - ABOUT
+   - ACADEMICS
+   - LIFE AT SCHOOL
+   - THE VIDYA WAY
+   - QUICK FACTS
+   - FAQ
+
+   WILL TURN ORANGE.
+========================================================= */
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .raya-navbar
+  .raya-navbar-link:hover,
+
+  .raya-navbar
+  .raya-navbar-link:visited:hover,
+
+  .raya-navbar.is-top
+  .raya-navbar-link:hover,
+
+  .raya-navbar.is-top
+  .raya-navbar-link:visited:hover,
+
+  .raya-navbar.is-scrolled
+  .raya-navbar-link:hover,
+
+  .raya-navbar.is-scrolled
+  .raya-navbar-link:visited:hover,
+
+  .raya-navbar.is-hidden
+  .raya-navbar-link:hover,
+
+  .raya-navbar.is-hidden
+  .raya-navbar-link:visited:hover {
+    color:
+      var(--nav-orange)
+      !important;
+
+    opacity:
+      1;
+
+    transform:
+      translateY(
+        -2px
+      );
+
+    text-decoration:
+      none;
+  }
+
+}
+
+
+/* =========================================================
+   CONTACT BUTTON
+========================================================= */
+
+.raya-navbar-contact-btn {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    14px;
+
+  flex:
+    0
+    0
+    auto;
+
+  min-height:
+    50px;
+
+  padding:
+    13px
+    23px;
+
+  background:
+    var(--nav-white);
+
+  color:
+    var(--nav-green-dark);
+
+  border:
+    1px solid
+    var(--nav-white);
+
+  border-radius:
+    0;
+
+  box-shadow:
+    0
+    4px
+    16px
+    rgba(
+      0,
+      0,
+      0,
+      0.08
+    );
+
+  font-family:
+    inherit;
+
+  font-size:
+    13px;
+
+  font-weight:
+    500;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0.055em;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+
+  text-decoration:
+    none;
+
+  transform:
+    translateY(0);
+
+  transition:
+    transform
+      0.3s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    background-color
+      0.25s ease,
+    color
+      0.25s ease,
+    border-color
+      0.25s ease,
+    box-shadow
+      0.25s ease;
+}
+
+
+/* =========================================================
+   CONTACT BUTTON — SCROLLED
+========================================================= */
+
+.raya-navbar.is-scrolled
+.raya-navbar-contact-btn {
+  background:
+    var(--nav-green);
+
+  color:
+    #ffffff;
+
+  border-color:
+    var(--nav-green);
+
+  box-shadow:
+    none;
+}
+
+
+/* =========================================================
+   CONTACT BUTTON VISITED
+
+   Prevent browser visited styling.
+========================================================= */
+
+.raya-navbar-contact-btn:visited {
+  text-decoration:
+    none;
+}
+
+
+.raya-navbar.is-top
+.raya-navbar-contact-btn:visited {
+  background:
+    var(--nav-white);
+
+  color:
+    var(--nav-green-dark);
+
+  border-color:
+    var(--nav-white);
+}
+
+
+.raya-navbar.is-scrolled
+.raya-navbar-contact-btn:visited {
+  background:
+    var(--nav-green);
+
+  color:
+    #ffffff;
+
+  border-color:
+    var(--nav-green);
+}
+
+
+/* =========================================================
+   CONTACT ARROW
+========================================================= */
+
+.raya-contact-arrow {
+  display:
+    inline-block;
+
+  color:
+    inherit;
+
+  font-family:
+    inherit;
+
+  font-size:
+    18px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1;
+
+  transition:
+    transform
+      0.3s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================================
+   CONTACT HOVER
+========================================================= */
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .raya-navbar
+  .raya-navbar-contact-btn:hover,
+
+  .raya-navbar
+  .raya-navbar-contact-btn:visited:hover,
+
+  .raya-navbar.is-top
+  .raya-navbar-contact-btn:hover,
+
+  .raya-navbar.is-top
+  .raya-navbar-contact-btn:visited:hover,
+
+  .raya-navbar.is-scrolled
+  .raya-navbar-contact-btn:hover,
+
+  .raya-navbar.is-scrolled
+  .raya-navbar-contact-btn:visited:hover {
+    background:
+      var(--nav-orange)
+      !important;
+
+    border-color:
+      var(--nav-orange)
+      !important;
+
+    color:
+      var(--nav-green-deep)
+      !important;
+
+    transform:
+      translateY(
+        -2px
+      );
+
+    box-shadow:
+      0
+      8px
+      24px
+      rgba(
+        0,
+        0,
+        0,
+        0.14
+      );
+  }
+
+
+  .raya-navbar-contact-btn:hover
+  .raya-contact-arrow {
+    transform:
+      translate(
+        3px,
+        -3px
+      );
+  }
+
+}
+
+
+/* =========================================================
+   CONTACT RESET
+========================================================= */
+
+.raya-navbar-contact-btn,
+.raya-navbar-contact-btn:hover,
+.raya-navbar-contact-btn:focus,
+.raya-navbar-contact-btn:focus-visible,
+.raya-navbar-contact-btn:active,
+.raya-navbar-contact-btn:visited {
+  text-decoration:
+    none;
+
+  border-bottom:
+    0;
+}
+
+
+/* =========================================================
+   MOBILE ELEMENTS OFF BY DEFAULT
+========================================================= */
+
+.raya-navbar-mobile-contact,
+.raya-navbar-toggle {
+  display:
+    none;
+}
+
+
+/* =========================================================
+   GLOBAL ACCESSIBLE FOCUS
+========================================================= */
+
+.raya-navbar a:focus-visible,
+.raya-navbar button:focus-visible {
+  outline:
+    2px solid
+    var(--nav-orange);
+
+  outline-offset:
+    4px;
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (
+  max-width: 1200px
+) {
+
+  .raya-navbar-container {
+    padding:
+      0
+      4%;
+
+    gap:
+      20px;
+  }
+
+
+  .raya-navbar-logo {
+    width:
+      170px;
+  }
+
+
+  .raya-navbar-links {
+    gap:
+      20px;
+  }
+
+
+  .raya-navbar-link {
+    font-size:
+      13px;
+
+    letter-spacing:
+      0.025em;
+  }
+
+
+  .raya-navbar-contact-btn {
+    gap:
+      11px;
+
+    min-height:
+      47px;
+
+    padding:
+      11px
+      17px;
+
+    font-size:
+      11.5px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (
+  max-width: 1024px
+) {
+
+  /* =======================================================
+     NAVBAR
+  ======================================================= */
+
+  .raya-navbar {
+    height:
+      80px;
+  }
+
+
+  .raya-navbar.is-top {
+    top:
+      7px;
+  }
+
+
+  .raya-navbar-container {
+    padding:
+      0
+      30px;
+  }
+
+
+  /* =======================================================
+     LOGO
+  ======================================================= */
+
+  .raya-navbar-logo {
+    width:
+      165px;
+  }
+
+
+  .raya-navbar-logo-image {
+    max-height:
+      58px;
+  }
+
+
+  /* =======================================================
+     HIDE DESKTOP CONTACT
+  ======================================================= */
+
+  .raya-navbar-desktop-contact {
+    display:
+      none;
+  }
+
+
+  /* =======================================================
+     MENU TOGGLE
+  ======================================================= */
+
+  .raya-navbar-toggle {
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    align-items:
+      center;
+
+    justify-content:
+      center;
+
+    gap:
+      6px;
+
+    flex:
+      0
+      0
+      auto;
+
+    width:
+      44px;
+
+    height:
+      44px;
+
+    margin-left:
+      auto;
+
+    padding:
+      0;
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.08
+      );
+
+    border:
+      1px solid
+      rgba(
+        255,
+        255,
+        255,
+        0.26
+      );
+
+    border-radius:
+      0;
+
+    cursor:
+      pointer;
+
+    transition:
+      background-color
+        0.25s ease,
+      border-color
+        0.25s ease,
+      transform
+        0.3s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        );
+  }
+
+
+  .raya-navbar-toggle:hover {
+    transform:
+      translateY(
+        -1px
+      );
+  }
+
+
+  /* =======================================================
+     SCROLLED TOGGLE
+  ======================================================= */
+
+  .raya-navbar.is-scrolled
+  .raya-navbar-toggle {
+    background:
+      transparent;
+
+    border-color:
+      rgba(
+        32,
+        104,
+        76,
+        0.24
+      );
+  }
+
+
+  /* =======================================================
+     HAMBURGER LINES
+  ======================================================= */
+
+  .raya-navbar-toggle-line {
+    display:
+      block;
+
+    width:
+      20px;
+
+    height:
+      1.5px;
+
+    background:
+      #ffffff;
+
+    transform-origin:
+      center;
+
+    transition:
+      transform
+        0.25s ease,
+      opacity
+        0.2s ease,
+      background-color
+        0.25s ease;
+  }
+
+
+  .raya-navbar.is-scrolled
+  .raya-navbar-toggle-line {
+    background:
+      var(--nav-green-dark);
+  }
+
+
+  /* =======================================================
+     HAMBURGER → X
+  ======================================================= */
+
+  .raya-navbar-toggle.is-active
+  .raya-navbar-toggle-line:nth-child(1) {
+    transform:
+      translateY(
+        7.5px
+      )
+      rotate(
+        45deg
+      );
+  }
+
+
+  .raya-navbar-toggle.is-active
+  .raya-navbar-toggle-line:nth-child(2) {
+    opacity:
+      0;
+  }
+
+
+  .raya-navbar-toggle.is-active
+  .raya-navbar-toggle-line:nth-child(3) {
+    transform:
+      translateY(
+        -7.5px
+      )
+      rotate(
+        -45deg
+      );
+  }
+
+
+  /* =======================================================
+     MOBILE MENU PANEL
+  ======================================================= */
+
+  .raya-navbar-menu {
+    position:
+      absolute;
+
+    top:
+      100%;
+
+    left:
+      0;
+
+    right:
+      0;
+
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+    gap:
+      22px;
+
+    width:
+      100%;
+
+    max-height:
+      0;
+
+    padding:
+      0
+      30px;
+
+    background:
+      var(--nav-cream);
+
+    border-top:
+      1px solid
+      var(--nav-border);
+
+    border-bottom:
+      1px solid
+      var(--nav-border);
+
+    box-shadow:
+      0
+      18px
+      40px
+      rgba(
+        24,
+        77,
+        58,
+        0.08
+      );
+
+    overflow:
+      hidden;
+
+    visibility:
+      hidden;
+
+    opacity:
+      0;
+
+    transition:
+      max-height
+        0.4s ease,
+      padding
+        0.3s ease,
+      opacity
+        0.28s ease,
+      visibility
+        0.28s ease;
+  }
+
+
+  /* =======================================================
+     OPEN MOBILE MENU
+  ======================================================= */
+
+  .raya-navbar-menu.is-open {
+    max-height:
+      min(
+        560px,
+        calc(
+          100dvh -
+          80px
+        )
+      );
+
+    padding:
+      25px
+      30px
+      29px;
+
+    overflow-y:
+      auto;
+
+    visibility:
+      visible;
+
+    opacity:
+      1;
+  }
+
+
+  /* =======================================================
+     WHEN MENU OPEN AT TOP
+  ======================================================= */
+
+  .raya-navbar:has(
+    .raya-navbar-menu.is-open
+  ) {
+    background:
+      var(--nav-cream);
+
+    border-bottom:
+      1px solid
+      var(--nav-border);
+
+    box-shadow:
+      0
+      18px
+      40px
+      rgba(
+        24,
+        77,
+        58,
+        0.08
+      );
+  }
+
+
+  .raya-navbar:has(
+    .raya-navbar-menu.is-open
+  )
+  .raya-navbar-logo-image {
+    filter:
+      brightness(0)
+      saturate(100%)
+      invert(34%)
+      sepia(22%)
+      saturate(1240%)
+      hue-rotate(103deg)
+      brightness(88%)
+      contrast(89%);
+  }
+
+
+  .raya-navbar:has(
+    .raya-navbar-menu.is-open
+  )
+  .raya-navbar-toggle-line {
+    background:
+      var(--nav-green-dark);
+  }
+
+
+  .raya-navbar:has(
+    .raya-navbar-menu.is-open
+  )
+  .raya-navbar-toggle {
+    background:
+      transparent;
+
+    border-color:
+      rgba(
+        32,
+        104,
+        76,
+        0.22
+      );
+  }
+
+
+  /* =======================================================
+     MOBILE LINKS CONTAINER
+  ======================================================= */
+
+  .raya-navbar-links {
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+    gap:
+      0;
+  }
+
+
+  /* =======================================================
+     MOBILE NAVIGATION LINKS
+  ======================================================= */
+
+  .raya-navbar-link,
+  .raya-navbar-link:visited,
+  .raya-navbar.is-top
+  .raya-navbar-link,
+  .raya-navbar.is-top
+  .raya-navbar-link:visited,
+  .raya-navbar.is-scrolled
+  .raya-navbar-link,
+  .raya-navbar.is-scrolled
+  .raya-navbar-link:visited {
+    justify-content:
+      flex-start;
+
+    width:
+      100%;
+
+    min-height:
+      56px;
+
+    padding:
+      14px
+      0;
+
+    color:
+      var(--nav-green-dark)
+      !important;
+
+    font-size:
+      14px;
+
+    font-weight:
+      500;
+
+    line-height:
+      1.2;
+
+    letter-spacing:
+      0.025em;
+
+    border-bottom:
+      1px solid
+      rgba(
+        32,
+        104,
+        76,
+        0.1
+      );
+
+    transform:
+      translateX(0);
+
+    transform-origin:
+      left center;
+
+    text-decoration:
+      none;
+  }
+
+
+  .raya-navbar-link:last-child {
+    border-bottom:
+      0;
+  }
+
+
+  /* =======================================================
+     MOBILE LINK HOVER
+
+     ALSO WORKS FOR VISITED LINKS.
+  ======================================================= */
+
+  .raya-navbar-link:hover,
+  .raya-navbar-link:visited:hover,
+  .raya-navbar.is-top
+  .raya-navbar-link:hover,
+  .raya-navbar.is-top
+  .raya-navbar-link:visited:hover,
+  .raya-navbar.is-scrolled
+  .raya-navbar-link:hover,
+  .raya-navbar.is-scrolled
+  .raya-navbar-link:visited:hover {
+    color:
+      var(--nav-orange)
+      !important;
+
+    transform:
+      translateX(
+        4px
+      );
+
+    text-decoration:
+      none;
+  }
+
+
+  /* =======================================================
+     MOBILE CONTACT
+  ======================================================= */
+
+  .raya-navbar-mobile-contact {
+    display:
+      inline-flex;
+
+    align-items:
+      center;
+
+    justify-content:
+      space-between;
+
+    width:
+      100%;
+
+    min-height:
+      50px;
+
+    padding:
+      14px
+      18px;
+
+    background:
+      var(--nav-green);
+
+    color:
+      #ffffff;
+
+    border:
+      1px solid
+      var(--nav-green);
+
+    border-radius:
+      0;
+
+    font-size:
+      12px;
+
+    font-weight:
+      500;
+
+    line-height:
+      1;
+
+    letter-spacing:
+      0.05em;
+
+    text-transform:
+      uppercase;
+
+    text-decoration:
+      none;
+
+    transition:
+      background-color
+        0.25s ease,
+      border-color
+        0.25s ease,
+      color
+        0.25s ease,
+      transform
+        0.3s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        );
+  }
+
+
+  .raya-navbar-mobile-contact:visited {
+    background:
+      var(--nav-green);
+
+    border-color:
+      var(--nav-green);
+
+    color:
+      #ffffff;
+  }
+
+
+  .raya-navbar-mobile-contact:hover,
+  .raya-navbar-mobile-contact:visited:hover {
+    background:
+      var(--nav-orange)
+      !important;
+
+    border-color:
+      var(--nav-orange)
+      !important;
+
+    color:
+      var(--nav-green-deep)
+      !important;
+
+    transform:
+      translateY(
+        -2px
+      );
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+  max-width: 600px
+) {
+
+  .raya-navbar {
+    height:
+      72px;
+  }
+
+
+  .raya-navbar.is-top {
+    top:
+      5px;
+  }
+
+
+  .raya-navbar-container {
+    padding:
+      0
+      20px;
+  }
+
+
+  .raya-navbar-logo {
+    width:
+      150px;
+  }
+
+
+  .raya-navbar-logo-image {
+    max-height:
+      52px;
+  }
+
+
+  .raya-navbar-toggle {
+    width:
+      42px;
+
+    height:
+      42px;
+  }
+
+
+  .raya-navbar-menu {
+    padding-left:
+      20px;
+
+    padding-right:
+      20px;
+  }
+
+
+  .raya-navbar-menu.is-open {
+    max-height:
+      min(
+        560px,
+        calc(
+          100dvh -
+          72px
+        )
+      );
+
+    padding:
+      20px
+      20px
+      24px;
+  }
+
+
+  .raya-navbar-link,
+  .raya-navbar-link:visited {
+    min-height:
+      53px;
+
+    padding:
+      13px
+      0;
+
+    font-size:
+      13.5px;
+
+    letter-spacing:
+      0.02em;
+  }
+
+
+  .raya-navbar-mobile-contact {
+    min-height:
+      48px;
+
+    padding:
+      13px
+      16px;
+
+    font-size:
+      11.5px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width: 380px
+) {
+
+  .raya-navbar-container {
+    padding:
+      0
+      15px;
+  }
+
+
+  .raya-navbar-logo {
+    width:
+      135px;
+  }
+
+
+  .raya-navbar-menu.is-open {
+    padding-left:
+      15px;
+
+    padding-right:
+      15px;
+  }
+
+
+  .raya-navbar-link,
+  .raya-navbar-link:visited {
+    font-size:
+      13px;
+  }
+
+}
+
+
+/* =========================================================
+   BODY LOCK WHEN MOBILE MENU IS OPEN
+========================================================= */
+
+body.vidya-menu-open {
+  overflow:
+    hidden;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .raya-navbar,
+  .raya-navbar *,
+  .raya-navbar *::before,
+  .raya-navbar *::after {
+    transition:
+      none !important;
+  }
+
+
+  .raya-navbar-link:hover {
+    transform:
+      none;
+  }
+
+}

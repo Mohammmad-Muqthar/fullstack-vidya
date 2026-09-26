@@ -1,0 +1,1938 @@
+/* =========================================================
+   VIDYA ACADEMY — THE WAY
+
+   - SECTION HEADING ADDED
+   - NO DECORATIVE LINE
+   - SAME SITE TYPOGRAPHY
+   - VIDYA GREEN / ORANGE / CREAM SYSTEM
+========================================================= */
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.raya-way {
+  --way-green:
+    #20684c;
+
+  --way-green-dark:
+    #184d3a;
+
+  --way-green-deep:
+    #143f30;
+
+  --way-green-medium:
+    #6f927c;
+
+  --way-sage:
+    #c7ddd0;
+
+  --way-sage-hover:
+    #b4d0bf;
+
+  --way-orange:
+    #f39a20;
+
+  --way-orange-soft:
+    #fff0de;
+
+  --way-page:
+    #f7f6f1;
+
+  --way-white:
+    #ffffff;
+
+  --way-heading:
+    #184d3a;
+
+  --way-body:
+    #66736c;
+
+
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding:
+    82px
+    0
+    95px;
+
+  background:
+    var(--way-page);
+
+  color:
+    var(--way-heading);
+
+  font-family:
+    var(
+      --font-primary,
+      inherit
+    );
+
+  overflow: hidden;
+
+  scroll-margin-top:
+    80px;
+}
+
+
+/* =========================================================
+   FONT CONSISTENCY
+========================================================= */
+
+.raya-way,
+.raya-way *,
+.raya-way *::before,
+.raya-way *::after {
+  box-sizing: border-box;
+
+  font-family: inherit;
+}
+
+
+.raya-way h1,
+.raya-way h2,
+.raya-way h3,
+.raya-way h4,
+.raya-way p,
+.raya-way button,
+.raya-way span {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+
+   NO LINE ABOVE
+========================================================= */
+
+.raya-way-heading-wrap {
+  position: relative;
+
+  z-index: 5;
+
+  width:
+    min(
+      1500px,
+      calc(
+        100% -
+        100px
+      )
+    );
+
+  margin:
+    0 auto 38px;
+}
+
+
+.raya-way-heading {
+  margin: 0;
+
+  padding: 0;
+
+  color:
+    var(--way-green-dark);
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      38px,
+      4.3vw,
+      64px
+    );
+
+  font-weight: 600;
+
+  line-height: 1.06;
+
+  letter-spacing:
+    -0.055em;
+
+  text-wrap:
+    balance;
+}
+
+
+/* =========================================================
+   MAIN SHELL
+========================================================= */
+
+.raya-way-shell {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    clamp(
+      250px,
+      22.5vw,
+      405px
+    )
+    minmax(
+      0,
+      1fr
+    );
+
+  width: 100%;
+
+  height:
+    clamp(
+      620px,
+      78vh,
+      790px
+    );
+
+  min-height:
+    620px;
+
+  overflow:
+    hidden;
+
+  background:
+    var(--way-page);
+
+  font-family:
+    inherit;
+}
+
+
+/* =========================================================
+   LEFT GREEN PANEL
+========================================================= */
+
+.raya-way-sidebar {
+  position:
+    relative;
+
+  z-index:
+    20;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  background:
+    var(--way-green);
+
+  color:
+    #ffffff;
+
+  overflow:
+    hidden;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.raya-way-nav {
+  position:
+    absolute;
+
+  top:
+    clamp(
+      100px,
+      16vh,
+      135px
+    );
+
+  left:
+    clamp(
+      38px,
+      4.6vw,
+      66px
+    );
+
+  right:
+    25px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    flex-start;
+
+  gap:
+    clamp(
+      21px,
+      2.1vh,
+      29px
+    );
+}
+
+
+/* =========================================================
+   NAV ITEM
+========================================================= */
+
+.raya-way-nav-item {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    16px;
+
+  width:
+    100%;
+
+  padding:
+    0;
+
+  margin:
+    0;
+
+  background:
+    transparent;
+
+  border:
+    0;
+
+  outline:
+    0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.68
+    );
+
+  font-family:
+    inherit;
+
+  font-size:
+    clamp(
+      12px,
+      1vw,
+      16px
+    );
+
+  font-weight:
+    500;
+
+  line-height:
+    1.15;
+
+  letter-spacing:
+    0.065em;
+
+  text-transform:
+    uppercase;
+
+  text-align:
+    left;
+
+  cursor:
+    pointer;
+
+  transition:
+    color
+      0.25s ease,
+    transform
+      0.3s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================================
+   NAV DOT
+========================================================= */
+
+.raya-way-nav-dot {
+  display:
+    block;
+
+  flex:
+    0 0 auto;
+
+  width:
+    10px;
+
+  height:
+    10px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--way-sage);
+
+  opacity:
+    0.75;
+
+  transition:
+    background-color
+      0.25s ease,
+    transform
+      0.25s ease,
+    opacity
+      0.25s ease;
+}
+
+
+/* =========================================================
+   ACTIVE NAV
+========================================================= */
+
+.raya-way-nav-item.is-active {
+  color:
+    #ffffff;
+
+  transform:
+    translateX(
+      2px
+    );
+}
+
+
+.raya-way-nav-item.is-active
+.raya-way-nav-dot {
+  background:
+    var(--way-orange);
+
+  opacity:
+    1;
+
+  transform:
+    scale(
+      1.12
+    );
+}
+
+
+/* =========================================================
+   NAV HOVER
+========================================================= */
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .raya-way-nav-item:hover {
+    color:
+      #ffffff;
+  }
+
+
+  .raya-way-nav-item:hover
+  .raya-way-nav-dot {
+    opacity:
+      1;
+  }
+
+}
+
+
+/* =========================================================
+   UP / DOWN CONTROLS
+========================================================= */
+
+.raya-way-controls {
+  position:
+    absolute;
+
+  left:
+    clamp(
+      46px,
+      5.5vw,
+      78px
+    );
+
+  top:
+    61%;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  gap:
+    4px;
+
+  transform:
+    translateY(
+      -50%
+    );
+}
+
+
+/* =========================================================
+   CONTROL
+========================================================= */
+
+.raya-way-control {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  width:
+    38px;
+
+  height:
+    38px;
+
+  padding:
+    0;
+
+  margin:
+    0;
+
+  background:
+    transparent;
+
+  border:
+    0;
+
+  color:
+    #ffffff;
+
+  font-family:
+    inherit;
+
+  cursor:
+    pointer;
+
+  opacity:
+    0.86;
+
+  transition:
+    color
+      0.25s ease,
+    opacity
+      0.25s ease,
+    transform
+      0.3s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+.raya-way-control svg {
+  display:
+    block;
+
+  width:
+    27px;
+
+  height:
+    27px;
+}
+
+
+.raya-way-control:disabled {
+  opacity:
+    0.22;
+
+  cursor:
+    default;
+}
+
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .raya-way-control:not(
+    :disabled
+  ):hover {
+    color:
+      var(--way-orange);
+
+    opacity:
+      1;
+
+    transform:
+      scale(
+        1.08
+      );
+  }
+
+}
+
+
+/* =========================================================
+   MAIN STAGE
+========================================================= */
+
+.raya-way-stage {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  overflow:
+    hidden;
+
+  background:
+    var(--way-page);
+
+  font-family:
+    inherit;
+}
+
+
+/* =========================================================
+   SLIDE
+========================================================= */
+
+.raya-way-slide {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  overflow:
+    hidden;
+
+  background:
+    var(--way-page);
+
+  font-family:
+    inherit;
+
+  will-change:
+    transform;
+}
+
+
+/* =========================================================
+   IMAGE AREA
+========================================================= */
+
+.raya-way-image-wrap {
+  position:
+    absolute;
+
+  z-index:
+    1;
+
+  top:
+    clamp(
+      55px,
+      8.5vh,
+      85px
+    );
+
+  right:
+    0;
+
+  width:
+    67%;
+
+  height:
+    74%;
+
+  overflow:
+    hidden;
+
+  background:
+    #d7ded9;
+
+  transform-origin:
+    center;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.raya-way-image {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  max-width:
+    none;
+
+  object-fit:
+    cover;
+
+  object-position:
+    center;
+
+  pointer-events:
+    none;
+
+  user-select:
+    none;
+
+  -webkit-user-drag:
+    none;
+}
+
+
+/* =========================================================
+   IMAGE SHADE
+========================================================= */
+
+.raya-way-image-shade {
+  position:
+    absolute;
+
+  z-index:
+    2;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+    linear-gradient(
+      180deg,
+
+      rgba(
+        20,
+        63,
+        48,
+        0
+      )
+      55%,
+
+      rgba(
+        20,
+        63,
+        48,
+        0.10
+      )
+      100%
+    );
+}
+
+
+/* =========================================================
+   IMAGE CAPTION
+========================================================= */
+
+.raya-way-image-caption {
+  position:
+    absolute;
+
+  z-index:
+    5;
+
+  right:
+    clamp(
+      16px,
+      1.7vw,
+      30px
+    );
+
+  bottom:
+    clamp(
+      15px,
+      2vw,
+      28px
+    );
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  width:
+    clamp(
+      210px,
+      27vw,
+      400px
+    );
+
+  min-height:
+    clamp(
+      72px,
+      10vh,
+      110px
+    );
+
+  padding:
+    18px
+    25px;
+
+  background:
+    rgba(
+      32,
+      104,
+      76,
+      0.94
+    );
+
+  color:
+    #ffffff;
+
+  font-family:
+    inherit;
+
+  font-size:
+    clamp(
+      14px,
+      1.25vw,
+      21px
+    );
+
+  font-weight:
+    400;
+
+  font-style:
+    normal;
+
+  line-height:
+    1.35;
+
+  letter-spacing:
+    -0.018em;
+
+  text-align:
+    center;
+}
+
+
+/* =========================================================
+   CONTENT CARD
+========================================================= */
+
+.raya-way-content-card {
+  position:
+    absolute;
+
+  z-index:
+    8;
+
+  top:
+    26%;
+
+  left:
+    -32px;
+
+  width:
+    47%;
+
+  min-height:
+    43%;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    center;
+
+  padding:
+    clamp(
+      35px,
+      3.5vw,
+      58px
+    )
+    clamp(
+      35px,
+      4vw,
+      62px
+    );
+
+  background:
+    #ffffff;
+
+  color:
+    var(--way-heading);
+
+  font-family:
+    inherit;
+
+  box-shadow:
+    0
+    7px
+    24px
+    rgba(
+      24,
+      77,
+      58,
+      0.06
+    );
+}
+
+
+/* =========================================================
+   CONTENT TITLE
+========================================================= */
+
+.raya-way-content-title {
+  margin:
+    0;
+
+  color:
+    var(--way-green-dark);
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      28px,
+      2.45vw,
+      43px
+    );
+
+  font-weight:
+    600;
+
+  line-height:
+    1.07;
+
+  letter-spacing:
+    -0.045em;
+
+  text-wrap:
+    balance;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.raya-way-content-description {
+  width:
+    min(
+      100%,
+      600px
+    );
+
+  margin-top:
+    clamp(
+      18px,
+      1.8vw,
+      26px
+    ) !important;
+
+  color:
+    var(--way-body);
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      13px,
+      1vw,
+      17px
+    );
+
+  font-weight:
+    400;
+
+  line-height:
+    1.62;
+
+  letter-spacing:
+    -0.01em;
+
+  text-wrap:
+    pretty;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.raya-way-content-button {
+  min-width:
+    clamp(
+      160px,
+      14vw,
+      255px
+    );
+
+  min-height:
+    50px;
+
+  margin-top:
+    clamp(
+      21px,
+      2vw,
+      31px
+    );
+
+  padding:
+    12px
+    26px;
+
+  background:
+    var(--way-sage);
+
+  color:
+    var(--way-green-deep);
+
+  border:
+    0;
+
+  border-radius:
+    100px;
+
+  font-family:
+    inherit;
+
+  font-size:
+    clamp(
+      10px,
+      0.82vw,
+      13px
+    );
+
+  font-weight:
+    500;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0.035em;
+
+  text-transform:
+    uppercase;
+
+  cursor:
+    pointer;
+
+  transition:
+    background-color
+      0.25s ease,
+    color
+      0.25s ease,
+    transform
+      0.3s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .raya-way-content-button:hover {
+    background:
+      var(--way-orange);
+
+    color:
+      var(--way-green-deep);
+
+    transform:
+      translateY(
+        -2px
+      );
+  }
+
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+========================================================= */
+
+.raya-way
+::selection {
+  background:
+    var(--way-orange);
+
+  color:
+    var(--way-green-deep);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (
+  min-width: 1600px
+) {
+
+  .raya-way-heading-wrap {
+    width:
+      min(
+        1550px,
+        calc(
+          100% -
+          120px
+        )
+      );
+
+    margin-bottom:
+      42px;
+  }
+
+
+  .raya-way-shell {
+    grid-template-columns:
+      405px
+      minmax(
+        0,
+        1fr
+      );
+  }
+
+
+  .raya-way-content-card {
+    width:
+      47%;
+
+    left:
+      -31px;
+  }
+
+
+  .raya-way-image-wrap {
+    width:
+      67%;
+
+    right:
+      0;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (
+  max-width: 1366px
+) {
+
+  .raya-way {
+    padding:
+      70px
+      0
+      75px;
+  }
+
+
+  .raya-way-heading-wrap {
+    width:
+      calc(
+        100% -
+        64px
+      );
+
+    margin-bottom:
+      32px;
+  }
+
+
+  .raya-way-heading {
+    font-size:
+      clamp(
+        36px,
+        4.5vw,
+        54px
+      );
+  }
+
+
+  .raya-way-shell {
+    grid-template-columns:
+      280px
+      minmax(
+        0,
+        1fr
+      );
+
+    height:
+      clamp(
+        590px,
+        78vh,
+        700px
+      );
+  }
+
+
+  .raya-way-nav {
+    left:
+      43px;
+
+    right:
+      18px;
+  }
+
+
+  .raya-way-nav-item {
+    gap:
+      12px;
+
+    font-size:
+      12px;
+  }
+
+
+  .raya-way-nav-dot {
+    width:
+      9px;
+
+    height:
+      9px;
+  }
+
+
+  .raya-way-controls {
+    left:
+      45px;
+  }
+
+
+  .raya-way-content-card {
+    left:
+      -25px;
+
+    width:
+      49%;
+
+    padding:
+      35px
+      39px;
+  }
+
+
+  .raya-way-content-title {
+    font-size:
+      clamp(
+        26px,
+        2.5vw,
+        35px
+      );
+  }
+
+
+  .raya-way-content-description {
+    font-size:
+      13px;
+  }
+
+
+  .raya-way-content-button {
+    min-height:
+      44px;
+
+    min-width:
+      170px;
+
+    font-size:
+      10px;
+  }
+
+
+  .raya-way-image-caption {
+    width:
+      250px;
+
+    min-height:
+      78px;
+
+    font-size:
+      15px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+  max-width: 1000px
+) {
+
+  .raya-way {
+    padding:
+      62px
+      0
+      65px;
+  }
+
+
+  .raya-way-heading-wrap {
+    width:
+      calc(
+        100% -
+        40px
+      );
+
+    margin-bottom:
+      28px;
+  }
+
+
+  .raya-way-heading {
+    font-size:
+      43px;
+  }
+
+
+  .raya-way-shell {
+    grid-template-columns:
+      210px
+      minmax(
+        0,
+        1fr
+      );
+
+    height:
+      620px;
+  }
+
+
+  .raya-way-nav {
+    top:
+      95px;
+
+    left:
+      28px;
+
+    right:
+      15px;
+
+    gap:
+      20px;
+  }
+
+
+  .raya-way-nav-item {
+    gap:
+      10px;
+
+    font-size:
+      10px;
+
+    letter-spacing:
+      0.055em;
+  }
+
+
+  .raya-way-nav-dot {
+    width:
+      8px;
+
+    height:
+      8px;
+  }
+
+
+  .raya-way-controls {
+    left:
+      29px;
+  }
+
+
+  .raya-way-image-wrap {
+    top:
+      52px;
+
+    width:
+      71%;
+
+    height:
+      72%;
+  }
+
+
+  .raya-way-content-card {
+    top:
+      27%;
+
+    left:
+      -18px;
+
+    width:
+      53%;
+
+    min-height:
+      40%;
+
+    padding:
+      27px
+      29px;
+  }
+
+
+  .raya-way-content-title {
+    font-size:
+      27px;
+  }
+
+
+  .raya-way-content-description {
+    margin-top:
+      14px !important;
+
+    font-size:
+      11.5px;
+
+    line-height:
+      1.55;
+  }
+
+
+  .raya-way-content-button {
+    min-width:
+      150px;
+
+    min-height:
+      40px;
+
+    margin-top:
+      18px;
+
+    padding:
+      10px
+      16px;
+
+    font-size:
+      8.5px;
+  }
+
+
+  .raya-way-image-caption {
+    right:
+      12px;
+
+    bottom:
+      12px;
+
+    width:
+      205px;
+
+    min-height:
+      65px;
+
+    font-size:
+      13px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+  max-width: 700px
+) {
+
+  .raya-way {
+    padding:
+      55px
+      0
+      52px;
+
+    scroll-margin-top:
+      68px;
+  }
+
+
+  .raya-way-heading-wrap {
+    width:
+      calc(
+        100% -
+        40px
+      );
+
+    margin-bottom:
+      25px;
+  }
+
+
+  .raya-way-heading {
+    font-size:
+      clamp(
+        34px,
+        9vw,
+        44px
+      );
+
+    font-weight:
+      600;
+
+    line-height:
+      1.05;
+  }
+
+
+  .raya-way-shell {
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    height:
+      760px;
+
+    min-height:
+      760px;
+  }
+
+
+  /* =======================================================
+     GREEN NAV AREA
+  ======================================================= */
+
+  .raya-way-sidebar {
+    flex:
+      0
+      0
+      135px;
+
+    width:
+      100%;
+
+    height:
+      135px;
+  }
+
+
+  .raya-way-nav {
+    position:
+      absolute;
+
+    top:
+      24px;
+
+    left:
+      18px;
+
+    right:
+      88px;
+
+    display:
+      grid;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+
+    gap:
+      15px
+      10px;
+  }
+
+
+  .raya-way-nav-item {
+    gap:
+      7px;
+
+    font-size:
+      8px;
+
+    letter-spacing:
+      0.05em;
+  }
+
+
+  .raya-way-nav-dot {
+    width:
+      6px;
+
+    height:
+      6px;
+  }
+
+
+  /* =======================================================
+     MOBILE CONTROLS
+  ======================================================= */
+
+  .raya-way-controls {
+    top:
+      50%;
+
+    left:
+      auto;
+
+    right:
+      18px;
+
+    flex-direction:
+      row;
+
+    gap:
+      0;
+
+    transform:
+      translateY(
+        -50%
+      );
+  }
+
+
+  .raya-way-control {
+    width:
+      32px;
+
+    height:
+      36px;
+  }
+
+
+  .raya-way-control svg {
+    width:
+      22px;
+
+    height:
+      22px;
+  }
+
+
+  /* =======================================================
+     STAGE
+  ======================================================= */
+
+  .raya-way-stage {
+    flex:
+      1
+      1
+      auto;
+
+    height:
+      auto;
+  }
+
+
+  .raya-way-slide {
+    height:
+      100%;
+  }
+
+
+  /* =======================================================
+     IMAGE
+  ======================================================= */
+
+  .raya-way-image-wrap {
+    top:
+      24px;
+
+    right:
+      0;
+
+    width:
+      91%;
+
+    height:
+      55%;
+  }
+
+
+  /* =======================================================
+     CONTENT
+  ======================================================= */
+
+  .raya-way-content-card {
+    top:
+      auto;
+
+    left:
+      17px;
+
+    right:
+      17px;
+
+    bottom:
+      24px;
+
+    width:
+      auto;
+
+    min-height:
+      0;
+
+    padding:
+      23px;
+  }
+
+
+  .raya-way-content-title {
+    font-size:
+      27px;
+  }
+
+
+  .raya-way-content-description {
+    margin-top:
+      11px !important;
+
+    font-size:
+      11px;
+
+    line-height:
+      1.55;
+  }
+
+
+  .raya-way-content-button {
+    min-width:
+      145px;
+
+    min-height:
+      38px;
+
+    margin-top:
+      15px;
+
+    font-size:
+      8px;
+  }
+
+
+  /* =======================================================
+     IMAGE CAPTION
+  ======================================================= */
+
+  .raya-way-image-caption {
+    top:
+      13px;
+
+    right:
+      13px;
+
+    bottom:
+      auto;
+
+    width:
+      auto;
+
+    max-width:
+      190px;
+
+    min-height:
+      0;
+
+    padding:
+      10px
+      13px;
+
+    font-size:
+      10px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width: 400px
+) {
+
+  .raya-way-heading-wrap {
+    width:
+      calc(
+        100% -
+        32px
+      );
+  }
+
+
+  .raya-way-heading {
+    font-size:
+      33px;
+  }
+
+
+  .raya-way-shell {
+    height:
+      720px;
+
+    min-height:
+      720px;
+  }
+
+
+  .raya-way-sidebar {
+    flex-basis:
+      125px;
+
+    height:
+      125px;
+  }
+
+
+  .raya-way-nav {
+    top:
+      21px;
+
+    left:
+      14px;
+
+    right:
+      76px;
+
+    gap:
+      13px
+      7px;
+  }
+
+
+  .raya-way-nav-item {
+    font-size:
+      7px;
+  }
+
+
+  .raya-way-controls {
+    right:
+      11px;
+  }
+
+
+  .raya-way-image-wrap {
+    width:
+      94%;
+
+    height:
+      53%;
+  }
+
+
+  .raya-way-content-card {
+    left:
+      13px;
+
+    right:
+      13px;
+
+    bottom:
+      19px;
+
+    padding:
+      20px;
+  }
+
+
+  .raya-way-content-title {
+    font-size:
+      24px;
+  }
+
+
+  .raya-way-content-description {
+    font-size:
+      10.5px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .raya-way *,
+  .raya-way *::before,
+  .raya-way *::after {
+    animation:
+      none !important;
+
+    transition:
+      none !important;
+  }
+
+}

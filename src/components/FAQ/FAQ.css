@@ -1,0 +1,1933 @@
+/* =========================================================
+   VIDYA ACADEMY — FAQ
+
+   PREMIUM CLEAN VERSION
+   - NO RIGHT-SIDE TEXT ABOVE FORM
+   - Warm cream background
+   - Editorial FAQ rows
+   - Solid Vidya green form
+   - Orange interaction accents
+   - Same font as website
+========================================================= */
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.vidya-faq {
+  --faq-bg: #f7f6f1;
+
+  --faq-white: #ffffff;
+
+  --faq-green: #20684c;
+
+  --faq-green-dark: #184d3a;
+
+  --faq-green-deep: #143f30;
+
+  --faq-sage: #c7ddd0;
+
+  --faq-orange: #f39a20;
+
+  --faq-orange-soft: #fff0de;
+
+  --faq-text: #1f2f27;
+
+  --faq-muted: #66736c;
+
+  --faq-border:
+    rgba(
+      24,
+      77,
+      58,
+      0.14
+    );
+
+  --faq-sticky-top:
+    calc(
+      var(
+        --navbar-height,
+        80px
+      ) +
+      22px
+    );
+
+
+  position: relative;
+
+  isolation: isolate;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding:
+    95px
+    0
+    115px;
+
+  background:
+    var(--faq-bg);
+
+  color:
+    var(--faq-text);
+
+  font-family:
+    var(
+      --font-primary,
+      inherit
+    );
+
+  overflow:
+    visible;
+
+  scroll-margin-top:
+    80px;
+}
+
+
+/* =========================================================
+   RESET + SAME FONT EVERYWHERE
+========================================================= */
+
+.vidya-faq,
+.vidya-faq *,
+.vidya-faq *::before,
+.vidya-faq *::after {
+  box-sizing: border-box;
+
+  font-family: inherit;
+}
+
+
+.vidya-faq h1,
+.vidya-faq h2,
+.vidya-faq h3,
+.vidya-faq p {
+  margin: 0;
+
+  font-family: inherit;
+}
+
+
+.vidya-faq button,
+.vidya-faq input,
+.vidya-faq select {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   SUBTLE BACKGROUND DEPTH
+========================================================= */
+
+.vidya-faq::before {
+  content: "";
+
+  position: absolute;
+
+  top: -240px;
+
+  right: -170px;
+
+  z-index: 0;
+
+  width: 560px;
+
+  height: 560px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+
+      rgba(
+        32,
+        104,
+        76,
+        0.055
+      )
+      0%,
+
+      rgba(
+        32,
+        104,
+        76,
+        0.015
+      )
+      50%,
+
+      transparent
+      72%
+    );
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.vidya-faq-container {
+  position:
+    relative;
+
+  z-index:
+    1;
+
+  width:
+    min(
+      1420px,
+      calc(
+        100% -
+        100px
+      )
+    );
+
+  margin:
+    0 auto;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+
+   NO RIGHT-SIDE TEXT.
+========================================================= */
+
+.vidya-faq-intro {
+  width: 100%;
+
+  margin-bottom:
+    48px;
+}
+
+
+.vidya-faq-intro h2 {
+  margin: 0;
+
+  color:
+    var(--faq-green-dark);
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      40px,
+      4.3vw,
+      64px
+    );
+
+  font-weight:
+    600;
+
+  line-height:
+    1.04;
+
+  letter-spacing:
+    -0.055em;
+
+  text-wrap:
+    balance;
+}
+
+
+/* =========================================================
+   MAIN TWO-COLUMN LAYOUT
+========================================================= */
+
+.vidya-faq-layout {
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(
+      0,
+      1.28fr
+    )
+    minmax(
+      360px,
+      0.72fr
+    );
+
+  align-items:
+    start;
+
+  gap:
+    clamp(
+      38px,
+      5vw,
+      85px
+    );
+
+  width:
+    100%;
+}
+
+
+/* =========================================================
+   FAQ LIST
+========================================================= */
+
+.vidya-faq-questions {
+  width: 100%;
+
+  min-width: 0;
+}
+
+
+.vidya-faq-list {
+  display: flex;
+
+  flex-direction:
+    column;
+
+  width: 100%;
+
+  border-top:
+    1px solid
+    var(--faq-border);
+}
+
+
+/* =========================================================
+   FAQ ROW
+========================================================= */
+
+.vidya-faq-item {
+  position: relative;
+
+  width: 100%;
+
+  background:
+    transparent;
+
+  border: 0;
+
+  border-bottom:
+    1px solid
+    var(--faq-border);
+
+  overflow:
+    hidden;
+
+  transition:
+    background-color
+      0.3s ease,
+    border-color
+      0.3s ease;
+}
+
+
+/* =========================================================
+   OPEN ROW
+========================================================= */
+
+.vidya-faq-item.is-open {
+  background:
+    rgba(
+      199,
+      221,
+      208,
+      0.24
+    );
+
+  border-color:
+    rgba(
+      32,
+      104,
+      76,
+      0.2
+    );
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+.vidya-faq-question-heading {
+  margin: 0;
+}
+
+
+.vidya-faq-question {
+  display: grid;
+
+  grid-template-columns:
+    42px
+    minmax(
+      0,
+      1fr
+    )
+    42px;
+
+  align-items:
+    center;
+
+  gap:
+    20px;
+
+  width: 100%;
+
+  min-height:
+    92px;
+
+  padding:
+    22px
+    24px
+    22px
+    10px;
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    var(--faq-text);
+
+  text-align:
+    left;
+
+  cursor:
+    pointer;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.vidya-faq-question-number {
+  color:
+    var(--faq-orange);
+
+  font-size:
+    10px;
+
+  font-weight:
+    600;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+/* =========================================================
+   QUESTION TEXT
+========================================================= */
+
+.vidya-faq-question-text {
+  color:
+    var(--faq-text);
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      16px,
+      1.1vw,
+      19px
+    );
+
+  font-weight:
+    500;
+
+  line-height:
+    1.45;
+
+  letter-spacing:
+    -0.025em;
+}
+
+
+/* =========================================================
+   PLUS ICON
+========================================================= */
+
+.vidya-faq-question-icon {
+  display: flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  width:
+    40px;
+
+  height:
+    40px;
+
+  flex-shrink:
+    0;
+
+  border:
+    1px solid
+    rgba(
+      24,
+      77,
+      58,
+      0.22
+    );
+
+  border-radius:
+    50%;
+
+  background:
+    transparent;
+
+  color:
+    var(--faq-green-dark);
+
+  transition:
+    transform
+      0.35s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    background-color
+      0.3s ease,
+    border-color
+      0.3s ease,
+    color
+      0.3s ease;
+}
+
+
+.vidya-faq-question-icon svg {
+  display: block;
+
+  width:
+    17px;
+
+  height:
+    17px;
+}
+
+
+/* =========================================================
+   OPEN ICON
+========================================================= */
+
+.vidya-faq-item.is-open
+.vidya-faq-question-icon {
+  transform:
+    rotate(
+      45deg
+    );
+
+  background:
+    var(--faq-orange);
+
+  border-color:
+    var(--faq-orange);
+
+  color:
+    var(--faq-green-deep);
+}
+
+
+/* =========================================================
+   FAQ HOVER
+========================================================= */
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .vidya-faq-item:not(.is-open):hover {
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.5
+      );
+  }
+
+
+  .vidya-faq-item:not(.is-open):hover
+  .vidya-faq-question-icon {
+    border-color:
+      var(--faq-orange);
+
+    transform:
+      scale(
+        1.04
+      );
+  }
+
+
+  .vidya-faq-item:not(.is-open):hover
+  .vidya-faq-question-text {
+    color:
+      var(--faq-green-dark);
+  }
+
+}
+
+
+/* =========================================================
+   ANSWER
+========================================================= */
+
+.vidya-faq-answer {
+  width: 100%;
+
+  overflow:
+    hidden;
+}
+
+
+.vidya-faq-answer-inner {
+  padding:
+    0
+    78px
+    28px
+    72px;
+}
+
+
+.vidya-faq-answer-inner p {
+  max-width:
+    650px;
+
+  color:
+    var(--faq-muted);
+
+  font-size:
+    14px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.75;
+
+  letter-spacing:
+    -0.008em;
+
+  text-wrap:
+    pretty;
+}
+
+
+/* =========================================================
+   FAQ FOCUS
+========================================================= */
+
+.vidya-faq-question:focus-visible {
+  outline:
+    2px solid
+    var(--faq-orange);
+
+  outline-offset:
+    -3px;
+}
+
+
+/* =========================================================
+   FORM COLUMN
+========================================================= */
+
+.vidya-faq-form-column {
+  position:
+    sticky;
+
+  top:
+    var(--faq-sticky-top);
+
+  align-self:
+    start;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+}
+
+
+/* =========================================================
+   ENQUIRY FORM CARD
+========================================================= */
+
+.vidya-faq-enquiry {
+  position:
+    relative;
+
+  isolation:
+    isolate;
+
+  width:
+    100%;
+
+  padding:
+    clamp(
+      28px,
+      2.5vw,
+      38px
+    );
+
+  background:
+    var(--faq-green);
+
+  color:
+    #ffffff;
+
+  border:
+    0;
+
+  border-radius:
+    0;
+
+  box-shadow:
+    0
+    24px
+    55px
+    rgba(
+      20,
+      63,
+      48,
+      0.15
+    );
+
+  overflow:
+    hidden;
+}
+
+
+/* =========================================================
+   FORM DECORATIVE CIRCLES
+========================================================= */
+
+.vidya-faq-enquiry::before {
+  content: "";
+
+  position:
+    absolute;
+
+  top:
+    -120px;
+
+  right:
+    -120px;
+
+  width:
+    290px;
+
+  height:
+    290px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+
+  border-radius:
+    50%;
+
+  pointer-events:
+    none;
+}
+
+
+.vidya-faq-enquiry::after {
+  content: "";
+
+  position:
+    absolute;
+
+  right:
+    -52px;
+
+  bottom:
+    -90px;
+
+  width:
+    210px;
+
+  height:
+    210px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  border-radius:
+    50%;
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   FORM CONTENT ABOVE DECORATION
+========================================================= */
+
+.vidya-faq-enquiry-intro,
+.vidya-faq-form {
+  position:
+    relative;
+
+  z-index:
+    2;
+}
+
+
+/* =========================================================
+   FORM INTRO
+========================================================= */
+
+.vidya-faq-enquiry-intro {
+  margin-bottom:
+    27px;
+}
+
+
+.vidya-faq-enquiry-label {
+  display: block;
+
+  margin-bottom:
+    13px;
+
+  color:
+    var(--faq-orange-soft);
+
+  font-size:
+    9px;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.4;
+
+  letter-spacing:
+    0.11em;
+
+  text-transform:
+    uppercase;
+}
+
+
+.vidya-faq-enquiry-intro h3 {
+  max-width:
+    430px;
+
+  color:
+    #ffffff;
+
+  font-family:
+    inherit !important;
+
+  font-size:
+    clamp(
+      25px,
+      2vw,
+      32px
+    );
+
+  font-weight:
+    600;
+
+  line-height:
+    1.12;
+
+  letter-spacing:
+    -0.045em;
+
+  text-wrap:
+    balance;
+}
+
+
+.vidya-faq-enquiry-intro p {
+  max-width:
+    390px;
+
+  margin-top:
+    12px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
+
+  font-size:
+    12.5px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.6;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.vidya-faq-form {
+  width:
+    100%;
+}
+
+
+.vidya-faq-form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap:
+    15px
+    12px;
+
+  width:
+    100%;
+}
+
+
+.vidya-faq-field {
+  display: flex;
+
+  flex-direction:
+    column;
+
+  min-width:
+    0;
+
+  gap:
+    7px;
+}
+
+
+.vidya-faq-field-full {
+  grid-column:
+    1 / -1;
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.vidya-faq-field label {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+
+  font-size:
+    10px;
+
+  font-weight:
+    500;
+
+  line-height:
+    1.4;
+}
+
+
+.vidya-faq-field label span {
+  margin-left:
+    3px;
+
+  color:
+    var(--faq-orange);
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.vidya-faq-field input,
+.vidya-faq-field select {
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    48px;
+
+  min-width:
+    0;
+
+  margin:
+    0;
+
+  padding:
+    0
+    13px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+
+  border-radius:
+    0;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.96
+    );
+
+  color:
+    var(--faq-green-deep);
+
+  font-size:
+    12px;
+
+  font-weight:
+    400;
+
+  outline:
+    none;
+
+  box-shadow:
+    none;
+
+  transition:
+    border-color
+      0.2s ease,
+    background-color
+      0.2s ease,
+    box-shadow
+      0.2s ease;
+}
+
+
+.vidya-faq-field input::placeholder {
+  color:
+    #87938c;
+
+  opacity:
+    1;
+}
+
+
+.vidya-faq-field select {
+  padding-right:
+    28px;
+
+  cursor:
+    pointer;
+}
+
+
+.vidya-faq-field input:focus,
+.vidya-faq-field select:focus {
+  background:
+    #ffffff;
+
+  border-color:
+    var(--faq-orange);
+
+  box-shadow:
+    0
+    0
+    0
+    3px
+    rgba(
+      243,
+      154,
+      32,
+      0.16
+    );
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+.vidya-faq-phone-group {
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      112px,
+      0.9fr
+    )
+    minmax(
+      0,
+      1.25fr
+    );
+
+  gap:
+    9px;
+}
+
+
+.vidya-faq-phone-group select {
+  padding-left:
+    9px;
+
+  font-size:
+    11px;
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.vidya-faq-submit {
+  display: flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    16px;
+
+  width:
+    100%;
+
+  min-height:
+    52px;
+
+  margin-top:
+    20px;
+
+  padding:
+    12px
+    17px;
+
+  border:
+    1px solid
+    var(--faq-orange);
+
+  border-radius:
+    0;
+
+  background:
+    var(--faq-orange);
+
+  color:
+    var(--faq-green-deep);
+
+  font-size:
+    11px;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.4;
+
+  letter-spacing:
+    0.065em;
+
+  text-transform:
+    uppercase;
+
+  text-align:
+    left;
+
+  cursor:
+    pointer;
+
+  transition:
+    background-color
+      0.25s ease,
+    border-color
+      0.25s ease,
+    transform
+      0.3s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+.vidya-faq-submit svg {
+  display:
+    block;
+
+  width:
+    19px;
+
+  height:
+    19px;
+
+  flex-shrink:
+    0;
+
+  transition:
+    transform
+      0.3s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* =========================================================
+   SUBMIT HOVER
+========================================================= */
+
+@media (
+  hover: hover
+)
+and (
+  pointer: fine
+) {
+
+  .vidya-faq-submit:hover {
+    background:
+      #ffad3f;
+
+    border-color:
+      #ffad3f;
+
+    transform:
+      translateY(
+        -2px
+      );
+  }
+
+
+  .vidya-faq-submit:hover svg {
+    transform:
+      translateX(
+        4px
+      );
+  }
+
+}
+
+
+.vidya-faq-submit:focus-visible {
+  outline:
+    2px solid
+    #ffffff;
+
+  outline-offset:
+    4px;
+}
+
+
+/* =========================================================
+   NOTE / STATUS
+========================================================= */
+
+.vidya-faq-form-note {
+  margin-top:
+    11px !important;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.52
+    );
+
+  font-size:
+    9.5px;
+
+  line-height:
+    1.5;
+}
+
+
+.vidya-faq-form-status {
+  margin-top:
+    11px !important;
+
+  padding:
+    10px
+    12px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+
+  color:
+    #ffffff;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.14
+    );
+
+  font-size:
+    11px;
+
+  line-height:
+    1.5;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (
+  min-width: 1500px
+) {
+
+  .vidya-faq {
+    padding:
+      110px
+      0
+      130px;
+  }
+
+
+  .vidya-faq-container {
+    width:
+      min(
+        1500px,
+        calc(
+          100% -
+          120px
+        )
+      );
+  }
+
+
+  .vidya-faq-layout {
+    gap:
+      90px;
+  }
+
+
+  .vidya-faq-question {
+    min-height:
+      96px;
+  }
+
+
+  .vidya-faq-enquiry {
+    padding:
+      40px;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (
+  max-width: 1200px
+) {
+
+  .vidya-faq {
+    padding:
+      82px
+      0
+      100px;
+  }
+
+
+  .vidya-faq-container {
+    width:
+      calc(
+        100% -
+        70px
+      );
+  }
+
+
+  .vidya-faq-layout {
+    grid-template-columns:
+      minmax(
+        0,
+        1.1fr
+      )
+      minmax(
+        340px,
+        0.9fr
+      );
+
+    gap:
+      38px;
+  }
+
+
+  .vidya-faq-question {
+    grid-template-columns:
+      35px
+      minmax(
+        0,
+        1fr
+      )
+      38px;
+
+    gap:
+      14px;
+
+    min-height:
+      84px;
+
+    padding:
+      19px
+      18px
+      19px
+      8px;
+  }
+
+
+  .vidya-faq-answer-inner {
+    padding:
+      0
+      60px
+      25px
+      57px;
+  }
+
+
+  .vidya-faq-enquiry {
+    padding:
+      28px;
+  }
+
+}
+
+
+/* =========================================================
+   SHORT DESKTOP
+========================================================= */
+
+@media (
+  min-width: 901px
+)
+and (
+  max-height: 780px
+) {
+
+  .vidya-faq {
+    --faq-sticky-top:
+      calc(
+        var(
+          --navbar-height,
+          80px
+        ) +
+        10px
+      );
+  }
+
+
+  .vidya-faq-form-column {
+    max-height:
+      calc(
+        100dvh -
+        var(
+          --faq-sticky-top
+        ) -
+        16px
+      );
+
+    overflow-x:
+      hidden;
+
+    overflow-y:
+      auto;
+
+    scrollbar-width:
+      thin;
+
+    scrollbar-color:
+      rgba(
+        32,
+        104,
+        76,
+        0.35
+      )
+      transparent;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+  max-width: 900px
+) {
+
+  .vidya-faq {
+    padding:
+      70px
+      0
+      90px;
+  }
+
+
+  .vidya-faq-container {
+    width:
+      calc(
+        100% -
+        48px
+      );
+  }
+
+
+  .vidya-faq-intro {
+    margin-bottom:
+      34px;
+  }
+
+
+  .vidya-faq-intro h2 {
+    font-size:
+      clamp(
+        39px,
+        6vw,
+        52px
+      );
+  }
+
+
+  .vidya-faq-layout {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      40px;
+  }
+
+
+  .vidya-faq-form-column {
+    position:
+      static;
+
+    top:
+      auto;
+
+    order:
+      1;
+  }
+
+
+  .vidya-faq-questions {
+    order:
+      2;
+  }
+
+
+  .vidya-faq-enquiry {
+    padding:
+      34px;
+  }
+
+
+  .vidya-faq-enquiry-intro h3 {
+    max-width:
+      570px;
+
+    font-size:
+      31px;
+  }
+
+
+  .vidya-faq-enquiry-intro p {
+    max-width:
+      520px;
+  }
+
+
+  .vidya-faq-question-text {
+    font-size:
+      17px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+  max-width: 600px
+) {
+
+  .vidya-faq {
+    padding:
+      58px
+      0
+      72px;
+
+    scroll-margin-top:
+      68px;
+  }
+
+
+  .vidya-faq-container {
+    width:
+      calc(
+        100% -
+        36px
+      );
+  }
+
+
+  .vidya-faq-intro {
+    margin-bottom:
+      27px;
+  }
+
+
+  .vidya-faq-intro h2 {
+    font-size:
+      clamp(
+        34px,
+        8.5vw,
+        43px
+      );
+
+    font-weight:
+      600;
+
+    line-height:
+      1.05;
+  }
+
+
+  .vidya-faq-layout {
+    gap:
+      31px;
+  }
+
+
+  /* FORM */
+
+  .vidya-faq-enquiry {
+    padding:
+      27px
+      21px;
+  }
+
+
+  .vidya-faq-enquiry-intro {
+    margin-bottom:
+      22px;
+  }
+
+
+  .vidya-faq-enquiry-label {
+    margin-bottom:
+      10px;
+
+    font-size:
+      8px;
+  }
+
+
+  .vidya-faq-enquiry-intro h3 {
+    font-size:
+      26px;
+  }
+
+
+  .vidya-faq-enquiry-intro p {
+    margin-top:
+      10px;
+
+    font-size:
+      12px;
+  }
+
+
+  .vidya-faq-form-grid {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      13px;
+  }
+
+
+  .vidya-faq-field-full {
+    grid-column:
+      auto;
+  }
+
+
+  .vidya-faq-field input,
+  .vidya-faq-field select {
+    height:
+      47px;
+
+    font-size:
+      12px;
+  }
+
+
+  .vidya-faq-phone-group {
+    grid-template-columns:
+      minmax(
+        105px,
+        0.85fr
+      )
+      minmax(
+        0,
+        1.2fr
+      );
+  }
+
+
+  .vidya-faq-submit {
+    min-height:
+      50px;
+
+    margin-top:
+      18px;
+  }
+
+
+  /* FAQ */
+
+  .vidya-faq-question {
+    grid-template-columns:
+      27px
+      minmax(
+        0,
+        1fr
+      )
+      34px;
+
+    gap:
+      10px;
+
+    min-height:
+      75px;
+
+    padding:
+      16px
+      5px;
+  }
+
+
+  .vidya-faq-question-number {
+    font-size:
+      9px;
+  }
+
+
+  .vidya-faq-question-text {
+    font-size:
+      14px;
+
+    line-height:
+      1.45;
+  }
+
+
+  .vidya-faq-question-icon {
+    width:
+      32px;
+
+    height:
+      32px;
+  }
+
+
+  .vidya-faq-question-icon svg {
+    width:
+      15px;
+
+    height:
+      15px;
+  }
+
+
+  .vidya-faq-answer-inner {
+    padding:
+      0
+      42px
+      21px
+      37px;
+  }
+
+
+  .vidya-faq-answer-inner p {
+    font-size:
+      12.5px;
+
+    line-height:
+      1.7;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width: 380px
+) {
+
+  .vidya-faq-container {
+    width:
+      calc(
+        100% -
+        28px
+      );
+  }
+
+
+  .vidya-faq-intro h2 {
+    font-size:
+      32px;
+  }
+
+
+  .vidya-faq-enquiry {
+    padding:
+      24px
+      17px;
+  }
+
+
+  .vidya-faq-enquiry-intro h3 {
+    font-size:
+      24px;
+  }
+
+
+  .vidya-faq-phone-group {
+    grid-template-columns:
+      96px
+      minmax(
+        0,
+        1fr
+      );
+
+    gap:
+      7px;
+  }
+
+
+  .vidya-faq-phone-group select {
+    font-size:
+      10px;
+  }
+
+
+  .vidya-faq-question {
+    grid-template-columns:
+      24px
+      minmax(
+        0,
+        1fr
+      )
+      31px;
+
+    gap:
+      8px;
+  }
+
+
+  .vidya-faq-answer-inner {
+    padding-left:
+      32px;
+
+    padding-right:
+      10px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .vidya-faq *,
+  .vidya-faq *::before,
+  .vidya-faq *::after {
+    animation:
+      none !important;
+
+    transition:
+      none !important;
+  }
+
+}
